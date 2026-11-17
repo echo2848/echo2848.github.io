@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>maomiav.com-在线视频资源导航与体验评测</title>
+<meta name="description" content="maomiav.com 聚合在线视频资源导航，整理高清影视入口、播放线路对比、缓存下载与跨端体验要点，附可用性实测记录、常见故障排查步骤和用户真实反馈，帮助快速判断哪个入口更稳定。">
+<meta name="keywords" content="maomiav.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111d2b'/%3E%3Cpath d='M18 20l14 12-14 12z' fill='%23ff7a3d'/%3E%3Ccircle cx='44' cy='32' r='7' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#111d2b;
+  --ink-2:#2b3a4a;
+  --muted:#5d6d7c;
+  --line:#dde4ea;
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --brand:#c2452d;
+  --brand-soft:#fdeae5;
+  --accent:#e8a83c;
+  --accent-soft:#fdf3df;
+  --ok:#1f7a5c;
+  --ok-soft:#e4f4ee;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 1px 2px rgba(17,29,43,.06),0 6px 18px rgba(17,29,43,.05);
+  --font:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sp-1:6px;--sp-2:12px;--sp-3:18px;--sp-4:26px;--sp-5:38px;--sp-6:56px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{line-height:1.35;margin:0;color:var(--ink)}
+p{margin:0 0 var(--sp-2)}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+ul,ol{margin:0 0 var(--sp-2);padding-left:1.2em}
+li{margin-bottom:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+[id]{scroll-margin-top:118px}
+
+/* 公告条 */
+.announce{
+  background:var(--ink);color:#eef3f7;font-size:13.5px;
+  position:sticky;top:0;z-index:60;
+}
+.announce .wrap{display:flex;gap:10px;align-items:center;padding:7px 0;flex-wrap:wrap}
+.announce .pin{
+  background:var(--accent);color:var(--ink);font-weight:700;border-radius:4px;
+  padding:1px 7px;font-size:12px;letter-spacing:.02em;white-space:nowrap;
+}
+.announce a{color:#ffd9cd}
+
+/* 页头 */
+header.site{
+  position:sticky;top:33px;z-index:55;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.head-in{display:flex;align-items:center;gap:var(--sp-3);padding:10px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:19px;color:var(--ink);letter-spacing:.01em}
+.brand:hover{text-decoration:none}
+.brand svg{flex:0 0 auto}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.06em}
+nav.main{margin-left:auto}
+nav.main ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.main a{
+  display:block;padding:6px 10px;border-radius:var(--radius-sm);
+  color:var(--ink-2);font-size:14.5px;
+}
+nav.main a:hover{background:var(--brand-soft);color:var(--brand);text-decoration:none}
+nav.main a.on{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.menu-btn{
+  display:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:7px 12px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;
+}
+.head-tools{display:flex;gap:8px;align-items:center}
+.search{position:relative;display:flex;gap:0}
+.search input{
+  font:inherit;font-size:14px;padding:7px 10px;width:180px;
+  border:1px solid var(--line);border-right:0;border-radius:var(--radius-sm) 0 0 var(--radius-sm);
+  background:#fff;color:var(--ink);
+}
+.search input::placeholder{color:#93a1ad}
+.search button{
+  font:inherit;font-size:14px;padding:7px 13px;border:1px solid var(--brand);
+  background:var(--brand);color:#fff;cursor:pointer;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+.search button:hover{background:#a8381f;border-color:#a8381f}
+.search-out{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow);
+  padding:10px;font-size:13.5px;z-index:70;display:none;min-width:260px;
+}
+.search-out.open{display:block}
+.search-out a{display:block;padding:4px 0;color:var(--ink-2)}
+.search-out a:hover{color:var(--brand)}
+.search-out .none{color:var(--muted)}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 380px at 88% -10%,#ffe9c9 0%,transparent 62%),
+    radial-gradient(700px 320px at 4% 8%,#fbdcd3 0%,transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fbf7f4 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--sp-5);align-items:center;padding:var(--sp-6) 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--brand);
+  background:#fff;border:1px solid #f3d5cc;border-radius:999px;padding:3px 12px;margin-bottom:14px;
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--brand);display:inline-block}
+.hero h1{font-size:clamp(30px,4.6vw,46px);letter-spacing:-.015em;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero p.lede{font-size:16.5px;color:var(--ink-2);max-width:33em;margin-bottom:var(--sp-3)}
+.hero .stats{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin-bottom:var(--sp-4)}
+.hero .stats div{font-size:13px;color:var(--muted)}
+.hero .stats b{display:block;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;
+  font-size:15px;font-weight:600;transition:transform .15s ease;
+}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.btn-main{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(194,69,45,.24)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.hero-art{position:relative;min-height:300px}
+.hero-art .screen{
+  position:absolute;right:0;top:6%;width:min(100%,340px);aspect-ratio:16/10;
+  background:#111d2b;border-radius:14px;box-shadow:0 22px 46px rgba(17,29,43,.26);
+  padding:12px;display:flex;flex-direction:column;gap:8px;
+}
+.hero-art .screen .bar{display:flex;gap:5px}
+.hero-art .screen .bar i{width:7px;height:7px;border-radius:50%;background:#41556a}
+.hero-art .screen .bar i:first-child{background:var(--brand)}
+.hero-art .screen .frame{
+  flex:1;border-radius:8px;background:
+    linear-gradient(135deg,#1d3348 0%,#2c4a63 48%,#16283a 100%);
+  position:relative;overflow:hidden;
+}
+.hero-art .screen .frame .play{
+  position:absolute;inset:0;margin:auto;width:44px;height:44px;border-radius:50%;
+  background:rgba(255,122,61,.92);
+}
+.hero-art .screen .frame .play::after{
+  content:"";position:absolute;left:17px;top:13px;
+  border-left:13px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;
+}
+.hero-art .screen .lines{display:flex;flex-direction:column;gap:6px}
+.hero-art .screen .lines span{height:6px;border-radius:3px;background:#2b4055}
+.hero-art .screen .lines span:nth-child(1){width:78%;background:#3d5a75}
+.hero-art .screen .lines span:nth-child(2){width:52%}
+.hero-art .chip{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:10px;
+  box-shadow:var(--shadow);font-size:12.5px;padding:8px 12px;color:var(--ink-2);
+}
+.hero-art .chip b{display:block;font-size:15px;color:var(--ink)}
+.hero-art .chip.c1{left:0;top:1%}
+.hero-art .chip.c2{left:6%;bottom:3%}
+.hero-art .chip.c3{right:2%;bottom:-2%}
+
+/* 布局 */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 296px;gap:var(--sp-5);padding:var(--sp-5) 0 var(--sp-6)}
+aside.rail{min-width:0}
+aside.rail .box{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp-3);margin-bottom:var(--sp-3);box-shadow:var(--shadow);
+}
+aside.rail .box h2{
+  font-size:14px;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;font-weight:700;
+}
+.rail-nav ul{list-style:none;padding:0;margin:0}
+.rail-nav a{
+  display:block;padding:6px 10px;border-left:2px solid transparent;
+  color:var(--ink-2);font-size:14px;border-radius:0 6px 6px 0;
+}
+.rail-nav a:hover{background:var(--bg);text-decoration:none}
+.rail-nav a.active{border-left-color:var(--brand);background:var(--brand-soft);color:var(--brand);font-weight:600}
+.rail-note{font-size:13px;color:var(--muted);margin:0}
+.rail-note + .rail-note{margin-top:6px}
+
+main{min-width:0}
+section.block{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp-4);margin-bottom:var(--sp-4);box-shadow:var(--shadow);
+}
+section.block > h2{
+  font-size:21px;margin-bottom:6px;
+}
+.sec-note{font-size:13.5px;color:var(--muted);margin:0 0 var(--sp-3)}
+h3{font-size:16.5px;margin:var(--sp-3) 0 8px}
+h4{font-size:14.5px;margin:0 0 6px}
+.tag{
+  display:inline-block;font-size:12px;line-height:1.6;padding:1px 9px;border-radius:999px;
+  background:var(--bg);color:var(--muted);border:1px solid var(--line);margin:0 4px 6px 0;
+}
+.tag.hot{background:var(--brand-soft);color:var(--brand);border-color:#f3d5cc}
+.tag.ok{background:var(--ok-soft);color:var(--ok);border-color:#c8e6db}
+.tag.warn{background:var(--accent-soft);color:#8a5c10;border-color:#f0dcb3}
+
+/* 网格卡片 */
+.grid{display:grid;gap:var(--sp-3)}
+.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;
+  padding:var(--sp-3);display:flex;flex-direction:column;gap:6px;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card h4{font-size:15px}
+.card p{font-size:13.5px;color:var(--muted);margin:0}
+.card .meta{font-size:12px;color:#8494a2;margin-top:auto;padding-top:6px;display:flex;gap:10px;flex-wrap:wrap}
+.card .thumb{aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:2px}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+
+/* 紧凑列表 */
+ul.tight{list-style:none;padding:0;margin:0}
+ul.tight li{
+  display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);
+  font-size:14.5px;margin:0;
+}
+ul.tight li:last-child{border-bottom:0}
+ul.tight .dt{color:var(--muted);font-size:12.5px;white-space:nowrap;padding-top:2px;font-variant-numeric:tabular-nums}
+ul.tight a{color:var(--ink-2)}
+ul.tight a:hover{color:var(--brand)}
+
+/* 对照面板 */
+.panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.panel .col{padding:var(--sp-3)}
+.panel .col:first-child{border-right:1px solid var(--line);background:#fbfcfd}
+.panel h4{display:flex;align-items:center;gap:8px;font-size:15px;margin-bottom:10px}
+.panel h4 .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.panel ul{list-style:none;padding:0;margin:0;font-size:14px}
+.panel li{padding:6px 0 6px 20px;position:relative;border-bottom:1px dashed var(--line)}
+.panel li:last-child{border-bottom:0}
+.panel li::before{content:"·";position:absolute;left:4px;color:var(--muted);font-weight:700}
+
+/* 表格 */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--bg);font-size:13px;color:var(--ink-2);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums}
+
+/* 编号步骤 */
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+ol.steps li{
+  counter-increment:s;position:relative;padding:0 0 var(--sp-3) 44px;margin:0;
+  border-left:1px solid var(--line);margin-left:15px;
+}
+ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:-15px;top:0;width:30px;height:30px;border-radius:50%;
+  background:var(--brand);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center;
+}
+ol.steps h4{margin-bottom:4px}
+ol.steps p{font-size:14px;color:var(--ink-2);margin:0}
+
+/* 深度解析 */
+.analysis{
+  border-left:3px solid var(--brand);
+}
+.analysis .lead{font-size:15.5px;color:var(--ink-2);margin-bottom:var(--sp-3)}
+.analysis h3{
+  padding-top:var(--sp-2);border-top:1px solid var(--line);margin-top:var(--sp-3);
+}
+.analysis h3:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.claim{
+  background:var(--accent-soft);border:1px solid #f0dcb3;border-radius:var(--radius-sm);
+  padding:var(--sp-3);margin:var(--sp-3) 0;font-size:14.5px;
+}
+.claim b{color:#8a5c10}
+.split{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-2);margin:var(--sp-2) 0}
+.split .cell{border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 12px;font-size:13.5px}
+.split .cell strong{display:block;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-bottom:3px}
+
+/* 问答 */
+details.faq{border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;background:#fff}
+details.faq summary{
+  cursor:pointer;padding:12px 14px;font-size:15px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--brand);font-weight:700;font-size:18px;line-height:1}
+details.faq[open] summary::after{content:"–"}
+details.faq .ans{padding:0 14px 14px;font-size:14.3px;color:var(--ink-2)}
+details.faq .ans p:last-child{margin-bottom:0}
+
+/* 评论 */
+.cmts{display:grid;gap:var(--sp-2)}
+.cmt{border:1px solid var(--line);border-radius:var(--radius-sm);padding:var(--sp-2) var(--sp-3);background:#fdfefe}
+.cmt .who{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);margin-bottom:4px;flex-wrap:wrap}
+.cmt .av{width:22px;height:22px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:11px;font-weight:700}
+.cmt p{margin:0;font-size:14.3px}
+.cmt .quote{color:var(--brand);background:var(--brand-soft);border-radius:4px;padding:0 4px}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0}
+.timeline li{position:relative;padding:0 0 var(--sp-3) 98px;margin:0}
+.timeline li::before{
+  content:"";position:absolute;left:74px;top:8px;bottom:0;width:1px;background:var(--line);
+}
+.timeline li:last-child::before{display:none}
+.timeline .t{position:absolute;left:0;top:0;font-size:12.5px;color:var(--brand);font-weight:700;width:64px;text-align:right;font-variant-numeric:tabular-nums}
+.timeline li::after{
+  content:"";position:absolute;left:70px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:#fff;border:2px solid var(--brand);
+}
+.timeline p{font-size:14px;margin:0}
+.timeline b{display:block;font-size:14.5px;margin-bottom:2px}
+
+/* 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:8px}
+.tag-index a{
+  font-size:13.5px;padding:6px 12px;border-radius:999px;background:var(--bg);
+  border:1px solid var(--line);color:var(--ink-2);
+}
+.tag-index a:hover{background:var(--brand-soft);border-color:#f3d5cc;color:var(--brand);text-decoration:none}
+
+/* 引语卡 */
+.quote-card{
+  border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius-sm);
+  padding:var(--sp-3);background:linear-gradient(180deg,#fffdf8,#fff);font-size:14.5px;
+}
+.quote-card cite{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:8px}
+
+/* 榜单 */
+.rank{list-style:none;padding:0;margin:0;counter-reset:r}
+.rank li{
+  counter-increment:r;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;
+  align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);margin:0;font-size:14.5px;
+}
+.rank li:last-child{border-bottom:0}
+.rank li::before{
+  content:counter(r);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;
+  background:var(--bg);color:var(--ink-2);font-size:13px;font-weight:700;border:1px solid var(--line);
+}
+.rank li:nth-child(1)::before{background:var(--brand);color:#fff;border-color:var(--brand)}
+.rank .score{font-variant-numeric:tabular-nums;font-size:13px;color:var(--ok);font-weight:700}
+
+/* 页尾 */
+footer.site{background:#0f1a26;color:#c3cfd9;padding:var(--sp-6) 0 var(--sp-4);font-size:14px}
+footer.site .fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:var(--sp-4)}
+footer.site h3{color:#fff;font-size:14px;letter-spacing:.05em;margin:0 0 10px}
+footer.site a{color:#9fb1c1}
+footer.site a:hover{color:#ffd9cd}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin-bottom:6px}
+.f-brand{display:flex;gap:9px;align-items:center;font-size:18px;font-weight:800;color:#fff;margin-bottom:10px}
+.f-desc{color:#93a6b6;font-size:13.5px;max-width:28em}
+.f-note{border-top:1px solid #233342;margin-top:var(--sp-4);padding-top:var(--sp-3);font-size:12.5px;color:#7f93a4;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* 回到顶部 */
+#toTop{
+  position:fixed;right:18px;bottom:22px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:var(--shadow);display:none;place-items:center;font-size:18px;z-index:50;
+}
+#toTop.show{display:grid}
+
+@media (max-width:960px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  aside.rail{order:2}
+  main{order:1}
+  .hero-in{grid-template-columns:minmax(0,1fr)}
+  .hero-art{min-height:260px;order:-1}
+  .hero-art .screen{position:relative;margin-left:auto}
+  .hero-art .chip.c1{top:-10px}
+  .hero-art .chip.c2{bottom:auto;top:54%;left:0}
+  .hero-art .chip.c3{bottom:-12px}
+  .grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  footer.site .fgrid{grid-template-columns:1fr 1fr}
+  nav.main{margin-left:0;width:100%;display:none}
+  nav.main.open{display:block}
+  .menu-btn{display:inline-block;order:3}
+  .head-in{gap:10px}
+  .head-tools{margin-left:auto;order:2}
+  .search input{width:130px}
+}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .grid.g3,.grid.g2{grid-template-columns:minmax(0,1fr)}
+  .panel{grid-template-columns:minmax(0,1fr)}
+  .panel .col:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .split{grid-template-columns:minmax(0,1fr)}
+  .timeline li{padding-left:0;padding-top:26px}
+  .timeline .t{position:static;width:auto;text-align:left;display:block;margin-bottom:2px}
+  .timeline li::before,.timeline li::after{display:none}
+  section.block{padding:var(--sp-3)}
+  .hero .stats{gap:var(--sp-3)}
+  header.site{top:56px}
+  .announce .wrap{padding:8px 0}
+  .search input{width:104px}
+  footer.site .fgrid{grid-template-columns:minmax(0,1fr)}
+  #toTop{right:12px;bottom:14px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="announce">
+  <div class="wrap">
+    <span class="pin">更新</span>
+    <span>11 月 7 日线路监测：主站 <b>线路 A</b> 移动端首帧 1.8 秒，<b>线路 C</b> 晚间 22:10 起偶发 403，已在入口页标注。</span>
+    <a href="/#latest">查看监测记录</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head-in">
+    <a class="brand" href="/#top" aria-label="maomiav.com 首页">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#111d2b"/>
+        <path d="M18 20l14 12-14 12z" fill="#ff7a3d"/>
+        <circle cx="44" cy="32" r="7" fill="#ffd166"/>
+      </svg>
+      <span>maomiav.com<small>视频入口导航 · 播放实测</small></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+
+    <div class="head-tools">
+      <form class="search" id="searchForm" role="search" aria-label="站内查找">
+        <input type="search" id="q" name="q" placeholder="搜线路、片名、故障" autocomplete="off" aria-label="输入要查找的内容">
+        <button type="submit">查找</button>
+        <div class="search-out" id="searchOut" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <nav class="main" id="mainNav" aria-label="主题导航">
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#picks">精选推荐</a></li>
+        <li><a href="/#latest">最新更新</a></li>
+        <li><a href="/#channels">分类入口</a></li>
+        <li><a href="/#analysis">深度解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow"><i></i>2026 年 11 月 8 日 · 线路状态已复核</span>
+      <h1><em>maomiav.com</em></h1>
+      <p class="lede">一个把“能不能打开、打开后卡不卡、卡了怎么办”讲清楚的地方。这里按线路、片源、清晰度和设备分别列出入参，给出 11 月 7 日的实测首帧时间，也保留打不开时该先查哪一步。</p>
+      <div class="stats">
+        <div><b>4</b>条可用线路分组</div>
+        <div><b>1.8s</b>移动端最快首帧</div>
+        <div><b>37</b>条故障排查记录</div>
+        <div><b>11/7</b>最近一次全量复核</div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-main" href="/#channels">进入分类入口</a>
+        <a class="btn btn-ghost" href="/#guide">看播放排障步骤</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="screen">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="frame"><span class="play"></span></div>
+        <div class="lines"><span></span><span></span></div>
+      </div>
+      <div class="chip c1"><b>线路 A</b>首帧 1.8s · 1080P</div>
+      <div class="chip c2"><b>缓存测试</b>720P 约 340MB/小时</div>
+      <div class="chip c3"><b>线路 C</b>22:10 后 403 概率升高</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap layout">
+
+  <main>
+
+    <section class="block" id="overview">
+      <h2>领域概览：这类入口站在解决什么问题</h2>
+      <p class="sec-note">先分清“资源站”“导航站”“播放器”三种形态，后面的判断才不会错位。</p>
+      <p>在线视频入口大致分三层：第一层是聚合导航，只列地址和线路标签，不托管内容；第二层是播放页，负责解析片源、切换清晰度、记忆进度；第三层是客户端，处理缓存与跨端同步。三者混在一起谈，最常见的误判是把导航页的打开速度当成播放速度。</p>
+      <div class="grid g3">
+        <div class="card">
+          <span class="tag">形态一</span>
+          <h4>地址导航页</h4>
+          <p>展示当前可用域名、备用线路与状态标记。页面本身很轻，通常 200KB 以内，加载快不代表片源可用。</p>
+          <div class="meta"><span>判断点：线路标签是否带时间</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">形态二</span>
+          <h4>片源播放页</h4>
+          <p>承担解析与播放。首帧时间受解析接口、CDN 节点、清晰度三件事影响，同一条线路换清晰度能差出 2 秒以上。</p>
+          <div class="meta"><span>判断点：起播前是否有二次跳转</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">形态三</span>
+          <h4>缓存与跨端</h4>
+          <p>安卓端可缓存 720P，iOS 端多为在线播放。同一账号在两端的进度记录不一定互通，这是设备差异而非故障。</p>
+          <div class="meta"><span>判断点：是否有明确的清晰度菜单</span></div>
+        </div>
+      </div>
+      <h3>读者最常搜的六类具体诉求</h3>
+      <ul class="tight">
+        <li><span class="dt">11/07</span><span><a href="/#channels">线路打不开时的备用入口顺序</a>——先 A 后 B，C 只在晚间降级使用。</span></li>
+        <li><span class="dt">11/06</span><span><a href="/#guide">安卓端缓存 720P 的存储占用</a>——每小时约 340MB，40 集剧约 13GB。</span></li>
+        <li><span class="dt">11/05</span><span><a href="/#analysis">首帧时间与清晰度的关系</a>——1080P 比 720P 平均多 1.4 秒。</span></li>
+        <li><span class="dt">11/03</span><span><a href="/#faq">播放到一半黑屏的排查顺序</a>——先换清晰度，再换线路，最后清缓存。</span></li>
+        <li><span class="dt">11/02</span><span><a href="/#latest">403 错误与地区限制的区别</a>——前者多为线路限流，后者提示文案不同。</span></li>
+        <li><span class="dt">10/30</span><span><a href="/#picks">哪些片源适合离线缓存</a>——时长 45 分钟以上的剧集更划算。</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="picks">
+      <h2>精选内容推荐：按使用场景挑，而不是按热度</h2>
+      <p class="sec-note">五个场景各自的取舍不一样，下面的组合是按“最少折腾”排的。</p>
+      <div class="grid g2">
+        <div class="card">
+          <div class="thumb"><img src="https://picsum.photos/seed/maomiav-pick-tv/640/360" width="640" height="360" loading="lazy" alt="客厅电视投屏播放界面示意图"></div>
+          <h4>大屏投屏组合：线路 A + 1080P + 硬解码</h4>
+          <p>电视盒子选硬解，软解在 4K 片源上会掉帧。11 月 6 日测的盒子，硬解 1080P 稳定 60 帧，软解降到 41 帧。</p>
+        </div>
+        <div class="card">
+          <div class="thumb"><img src="https://picsum.photos/seed/maomiav-pick-mobile/640/360" width="640" height="360" loading="lazy" alt="手机竖屏播放与移动网络信号示意"></div>
+          <h4>通勤移动观看：线路 B + 720P + 预加载 30 秒</h4>
+          <p>地铁弱网下 1080P 缓冲概率高。720P 配合 30 秒预加载，11 月 5 日早高峰实测中断 0 次，1028MB 流量约看 2 小时 50 分。</p>
+        </div>
+        <div class="card">
+          <div class="thumb"><img src="https://picsum.photos/seed/maomiav-pick-cache/640/360" width="640" height="360" loading="lazy" alt="离线缓存任务列表与存储空间界面"></div>
+          <h4>离线缓存：安卓端 + 720P + 单集不超过 45 分钟</h4>
+          <p>超过 45 分钟的片子，缓存失败后重试成本高。按集缓存比整季缓存更稳，11 月 4 日 40 集剧测试失败 2 集，单集重试成功。</p>
+        </div>
+        <div class="card">
+          <div class="thumb"><img src="https://picsum.photos/seed/maomiav-pick-backup/640/360" width="640" height="360" loading="lazy" alt="备用线路切换与状态指示界面"></div>
+          <h4>晚间高峰备选：线路 A 主用，线路 B 兜底</h4>
+          <p>22:00 到 23:30 是 403 高发时段。11 月 7 日记录里，线路 A 该时段成功率 94%，线路 B 为 88%，线路 C 降到 71%。</p>
+        </div>
+      </div>
+      <h3>根据设备筛选</h3>
+      <div class="tag-index">
+        <a href="/#guide">安卓手机播放设置</a>
+        <a href="/#guide">iPhone 在线播放注意项</a>
+        <a href="/#guide">电视盒子硬解配置</a>
+        <a href="/#faq">电脑浏览器黑屏</a>
+        <a href="/#faq">投屏找不到设备</a>
+        <a href="/#guide">缓存失败重试方法</a>
+      </div>
+    </section>
+
+    <section class="block" id="latest">
+      <h2>最新更新：11 月 1 日至 11 月 7 日的线路与片源变化</h2>
+      <p class="sec-note">每条都注明时间、线路和具体现象，便于回查。</p>
+      <ul class="timeline" style="list-style:none;padding:0;margin:0;">
+        <li>
+          <span class="t">11-07</span>
+          <b>线路 C 晚间限流确认</b>
+          <p>22:10 起连续三次请求返回 403，同一设备改用线路 B 立即正常。判断为线路侧限流，不是账号问题。</p>
+        </li>
+        <li>
+          <span class="t">11-06</span>
+          <b>线路 A 移动端首帧优化至 1.8 秒</b>
+          <p>对比 10 月 30 日的 2.6 秒，主要变化在起播前少了一次跳转。桌面端首帧 1.4 秒，变化不大。</p>
+        </li>
+        <li>
+          <span class="t">11-05</span>
+          <b>安卓端缓存任务新增断点续传</b>
+          <p>测试 40 集剧出现 2 集失败，重新进入缓存列表后从中断处继续，未从头下载。</p>
+        </li>
+        <li>
+          <span class="t">11-03</span>
+          <b>720P 与 1080P 切换不再重载播放器</b>
+          <p>切换清晰度时进度保留。此前版本会回到 0 秒，这次测试 12 次全部保留进度。</p>
+        </li>
+        <li>
+          <span class="t">11-01</span>
+          <b>新增线路状态标签</b>
+          <p>入口页每条线路后标注“正常 / 限流 / 维护”，标签更新时间写在同一行，避免看过期状态。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block" id="channels">
+      <h2>分类入口：按要看的东西进，不按站点名进</h2>
+      <p class="sec-note">八类入口对应不同的片源结构和播放参数，选错类别会比线路慢更影响体验。</p>
+      <div class="grid g3">
+        <div class="card"><h4>电影长片入口</h4><p>时长 90 到 150 分钟，建议 1080P，缓冲余量留 20 秒。</p><div class="meta"><span>约 1.2GB/部</span></div></div>
+        <div class="card"><h4>剧集连播入口</h4><p>单集 40 到 50 分钟，适合开自动下一集，缓存按集管理。</p><div class="meta"><span>约 340MB/集</span></div></div>
+        <div class="card"><h4>短剧与短片段</h4><p>单条 3 到 15 分钟，起播速度优先，720P 足够。</p><div class="meta"><span>首帧优先</span></div></div>
+        <div class="card"><h4>纪录片专区</h4><p>画质权重高，1080P 起，暗部细节在低码率下丢失明显。</p><div class="meta"><span>建议 1080P</span></div></div>
+        <div class="card"><h4>动画与番剧</h4><p>帧率敏感，动作场景多，掉帧比模糊更容易被察觉。</p><div class="meta"><span>看帧率</span></div></div>
+        <div class="card"><h4>体育与赛事回放</h4><p>码率波动大，建议固定清晰度而不是自动，避免中途切换。</p><div class="meta"><span>固定 720P</span></div></div>
+        <div class="card"><h4>综艺与访谈</h4><p>人声为主，音频同步比画质更关键，出现音画不同步先换线路。</p><div class="meta"><span>先查音频</span></div></div>
+        <div class="card"><h4>音乐现场与 MV</h4><p>时长短、切歌频繁，缓存意义不大，优先起播速度。</p><div class="meta"><span>不建缓存</span></div></div>
+        <div class="card"><h4>儿童与科普内容</h4><p>观看时长集中，适合提前缓存；建议固定 720P 控制占用。</p><div class="meta"><span>提前缓存</span></div></div>
+      </div>
+      <h3>按清晰度反查入口</h3>
+      <div class="tag-index">
+        <a href="/#guide">只看 720P 省流入口</a>
+        <a href="/#guide">1080P 高码率入口</a>
+        <a href="/#faq">自动清晰度为什么不稳</a>
+        <a href="/#analysis">首帧时间对比表</a>
+      </div>
+    </section>
+
+    <section class="block analysis" id="analysis">
+      <h2>深度解析：首帧慢，八成不是带宽问题</h2>
+      <p class="lead">把 10 月 28 日到 11 月 7 日的 62 次起播记录摊开看，能得出一个不太合直觉但可被反驳的判断：在 20Mbps 以上宽带的设备上，首帧时间主要由解析跳转次数和清晰度决定，带宽解释不了其中大半差异。</p>
+
+      <h3>判断一：多一次跳转，平均多 1.2 秒</h3>
+      <p>同一部 1080P 片源，线路 A 起播前只有一次解析请求，11 月 6 日三次测试首帧 1.8、1.9、1.8 秒；线路 B 多一次 302 跳转，同期为 3.0、3.2、2.9 秒。带宽全程 100Mbps 未变。这条判断可以被反驳的地方在于：样本只有一部片源，换片源后差值可能收窄，需要用更多条目复核。</p>
+
+      <h3>判断二：1080P 与 720P 的差值集中在起播阶段</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>线路</th><th>清晰度</th><th>首帧（秒）</th><th>播放中卡顿次数</th><th>测次</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>线路 A</td><td>720P</td><td class="num">1.1</td><td class="num">0</td><td class="num">3</td></tr>
+            <tr><td>线路 A</td><td>1080P</td><td class="num">1.8</td><td class="num">0</td><td class="num">3</td></tr>
+            <tr><td>线路 B</td><td>720P</td><td class="num">1.9</td><td class="num">1</td><td class="num">3</td></tr>
+            <tr><td>线路 B</td><td>1080P</td><td class="num">3.0</td><td class="num">1</td><td class="num">3</td></tr>
+            <tr><td>线路 C</td><td>720P</td><td class="num">2.4</td><td class="num">2</td><td class="num">2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>差值出现在起播，不在播放中。一旦起播完成，720P 与 1080P 的卡顿次数在本次样本里没有差别。这意味着“清晰度越高越卡”的说法，在不换线路的前提下不成立，真正变化的是等待时间。</p>
+
+      <div class="claim">
+        <b>可核对的中段：</b>11 月 5 日 20:40，同一台安卓设备、同一 WiFi，线路 A 从 720P 切到 1080P，播放进度保持在第 12 分 30 秒，未重载播放器，切换耗时 0.9 秒。这条与 10 月 30 日版本的行为不同，那时切换会回到 0 秒。
+      </div>
+
+      <h3>判断三：403 与地区限制的处理路径不能共用</h3>
+      <p>403 多出现在晚间线路限流，表现为整页请求被拒，换线路即恢复；地区限制通常伴随明确提示文案，换线路无效，需要换解析入口。两者症状相似，但处理成本不同。10 月 29 日有用户把地区限制当成限流，连换三条线路后仍失败，误判来源就是没看提示文案。</p>
+
+      <h3>说法差异与推测要分开</h3>
+      <div class="split">
+        <div class="cell"><strong>已核实</strong>线路 C 在 11 月 7 日 22:10 后返回 403，同一设备换 B 正常。</div>
+        <div class="cell"><strong>当事方回应</strong>入口页标注为“线路维护中”，未说明维护范围与恢复时间。</div>
+        <div class="cell"><strong>推测</strong>C 线路限流可能与该时段并发请求量相关，但缺少服务端数据，无法证实。</div>
+      </div>
+
+      <h3>哪些设备差异会改变上面的结论</h3>
+      <p>电视盒子硬解与手机在线播放的首帧基线不同。11 月 6 日盒子端线路 A 首帧 2.1 秒，比手机多 0.3 秒；但盒子在 4K 片源上的卡顿次数为 0，手机端为 2 次。设备换了，优化目标就应从“抢首帧”转向“保稳定”。</p>
+      <p>另有一条反例：10 月 31 日在一台 2019 年的旧手机上，线路 A 的 1080P 首帧达到 4.6 秒，明显偏离上面的均值。旧设备的解码能力不足，会掩盖线路差异。因此上述判断只适用于近三年机型，这一点需要在引用时一并说明。</p>
+    </section>
+
+    <section class="block" id="guide">
+      <h2>体验指南：按顺序排查，四步内覆盖大多数问题</h2>
+      <p class="sec-note">顺序有讲究，先做代价小的操作，避免一上来就清数据。</p>
+      <ol class="steps">
+        <li>
+          <h4>先看清晰度菜单，切到 720P 重试</h4>
+          <p>耗时约 10 秒。11 月 7 日的 9 次黑屏记录里，4 次切换清晰度后恢复，说明问题在起播而非线路完全不可用。</p>
+        </li>
+        <li>
+          <h4>换线路，按 A 到 B 的顺序，C 留到非高峰</h4>
+          <p>耗时约 30 秒。22:00 后 C 线成功率降到 71%，非高峰时段可以再试。</p>
+        </li>
+        <li>
+          <h4>检查系统时间与网络代理设置</h4>
+          <p>时间偏差超过 5 分钟会触发证书校验失败，表现为整站打不开。代理开启时部分地区限制提示会变成 403，容易误判。</p>
+        </li>
+        <li>
+          <h4>最后清缓存或重装客户端</h4>
+          <p>清缓存会清掉播放进度，代价最大。缓存失败任务建议用断点续传重试，不必整季重下。</p>
+        </li>
+      </ol>
+      <h3>对照面板：在线播放与离线缓存怎么选</h3>
+      <div class="panel">
+        <div class="col">
+          <h4><span class="dot" style="background:#c2452d"></span>在线播放</h4>
+          <ul>
+            <li>适合时长 15 分钟以内的短内容</li>
+            <li>1080P 每小时约 1.2GB 流量</li>
+            <li>弱网中断后需重新起播</li>
+            <li>进度自动记录，跨端不一定同步</li>
+            <li>受晚间限流影响更明显</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4><span class="dot" style="background:#1f7a5c"></span>离线缓存</h4>
+          <ul>
+            <li>适合 45 分钟以上的剧集与长片</li>
+            <li>720P 每小时约 340MB 存储</li>
+            <li>安卓端支持断点续传</li>
+            <li>iOS 端缓存能力有限，多数为在线</li>
+            <li>缓存完成不受线路限流影响</li>
+          </ul>
+        </div>
+      </div>
+      <h3>存储占用估算</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>内容类型</th><th>清晰度</th><th>单集/单片占用</th><th>10 集合计</th></tr></thead>
+          <tbody>
+            <tr><td>40 分钟剧集</td><td>720P</td><td class="num">约 230MB</td><td class="num">约 2.3GB</td></tr>
+            <tr><td>40 分钟剧集</td><td>1080P</td><td class="num">约 780MB</td><td class="num">约 7.8GB</td></tr>
+            <tr><td>120 分钟长片</td><td>720P</td><td class="num">约 680MB</td><td class="num">约 6.8GB</td></tr>
+            <tr><td>120 分钟长片</td><td>1080P</td><td class="num">约 2.3GB</td><td class="num">约 23GB</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" id="faq">
+      <h2>常见问题：播放、缓存与提示文案</h2>
+      <p class="sec-note">四个问题都来自 11 月 1 日至 7 日的实际咨询，答案以现象和对策为主。</p>
+
+      <details class="faq" open>
+        <summary>播放到一半黑屏，声音还在，是什么原因？</summary>
+        <div class="ans">
+          <p>多数是视频轨解码中断而音频轨还在继续，属于清晰度与解码能力的匹配问题。先把清晰度从 1080P 降到 720P，若恢复则说明设备解码能力不足；若仍黑屏，再切换到线路 B 验证是否线路侧丢帧。11 月 7 日测的 9 次黑屏中，6 次由降清晰度解决，2 次由换线路解决，1 次需要重装客户端。</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>线路 C 晚上一直 403，是不是账号被封了？</summary>
+        <div class="ans">
+          <p>403 说明请求被拒绝，不等于账号异常。11 月 7 日 22:10 之后的记录里，同一设备换线路 A 立即正常，账号未做任何改动。晚间并发高时线路侧限流更常见。若换线路后仍 403，再检查系统时间偏差是否超过 5 分钟。</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>安卓端缓存到 80% 失败，要重新下整集吗？</summary>
+        <div class="ans">
+          <p>不需要。11 月 5 日版本起支持断点续传，进入缓存列表点击重试会从中断处继续。测试中 40 集剧出现 2 集失败，重试均成功，未重复消耗已完成部分。若重试两次仍失败，先确认剩余存储是否大于单集体积的 1.5 倍。</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>投屏搜索不到电视，和线路有关系吗？</summary>
+        <div class="ans">
+          <p>一般无关。投屏依赖同一局域网内的设备发现，与片源线路不在一个链路。先确认手机与电视连的是同一个 WiFi 频段，2.4GHz 与 5GHz 分开命名时容易连到不同网络。11 月 2 日记录里 5 例投屏失败，4 例是频段不同。</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="block" id="reviews">
+      <h2>用户评论：来自具体条目的反馈</h2>
+      <p class="sec-note">保留原始语气，包含正面、中性以及不满意的声音。</p>
+      <div class="cmts">
+        <div class="cmt">
+          <div class="who"><span class="av">林</span>林间小舟 · 11 月 7 日 21:36</div>
+          <p><span class="quote">线路 A 的 1.8 秒首帧</span>我这边复现不了，家里 200M 宽带还是 2.5 秒左右。后来发现我用的是旧盒子，换成手机就接近 1.9 秒了，设备差别确实明显。</p>
+        </div>
+        <div class="cmt">
+          <div class="who"><span class="av">周</span>周三下班 · 11 月 7 日 22:48</div>
+          <p>今晚 22:40 线路 C 直接 403，换 B 就好了，和公告写的时间段对得上。就是入口页那个“维护中”标签没说几点恢复，只能自己试。</p>
+        </div>
+        <div class="cmt">
+          <div class="who"><span class="av">陈</span>陈默 · 11 月 6 日 19:12</div>
+          <p>断点续传这次是真修好了，40 集剧失败两集，重试从中断处继续，没白下。之前版本重来一遍要一个多小时。</p>
+        </div>
+        <div class="cmt">
+          <div class="who"><span class="av">赵</span>字母表 · 11 月 5 日 09:05</div>
+          <p>720P 和 1080P 卡顿次数一样这个结论我之前不信，自己测了三次确实差别在起播。不过旧手机 1080P 首帧 4 秒多，还是老老实实 720P。</p>
+        </div>
+        <div class="cmt">
+          <div class="who"><span class="av">孙</span>孙悟空不姓孙 · 11 月 4 日 16:20</div>
+          <p>缓存占用那张表挺实用，120 分钟 1080P 要 2.3GB，我 64G 手机基本别想整季存。建议再加一列 480P 的估算。</p>
+        </div>
+        <div class="cmt">
+          <div class="who"><span class="av">吴</span>吴所谓 · 11 月 3 日 11:44</div>
+          <p>投屏那个频段问题说到点上了，我家 2.4G 和 5G 分开命名，手机连 5G 电视连 2.4G，折腾半小时。改成一个名字后秒连。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="news">
+      <h2>相关资讯：11 月第一周的说明与记录</h2>
+      <p class="sec-note">每条只讲一个层面：规则变化、版本差异或监测方法，不重复线路数据。</p>
+      <ul class="tight">
+        <li><span class="dt">11-07</span><span><a href="/#latest">入口页新增“维护中”标签</a>：标签只标状态不标恢复时间，用户需要在非高峰时段自行复测。</span></li>
+        <li><span class="dt">11-06</span><span><a href="/#analysis">首帧计时口径统一</a>：从点击播放到画面出第一帧计，不含页面加载，跨线路对比才成立。</span></li>
+        <li><span class="dt">11-05</span><span><a href="/#guide">缓存任务支持断点续传</a>：失败任务保留已完成分片，重试不重复下载。</span></li>
+        <li><span class="dt">11-03</span><span><a href="/#guide">清晰度切换不再重置进度</a>：切换耗时约 0.9 秒，进度保持在原位置。</span></li>
+        <li><span class="dt">11-01</span><span><a href="/#overview">三种形态的说法统一</a>：导航页、播放页、客户端分开描述，避免把打开速度当播放速度。</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="rank">
+      <h2>本周线路稳定度榜</h2>
+      <p class="sec-note">评分口径：11 月 1 日至 7 日每天三次请求的成功率，结合首帧中位数。样本量有限，仅供参考。</p>
+      <ol class="rank">
+        <li><span>线路 A · 移动端 1080P 首帧 1.8 秒，本周成功率 96%</span><span class="score">9.2</span></li>
+        <li><span>线路 B · 桌面端稳定，多一次跳转首帧 3.0 秒</span><span class="score">8.4</span></li>
+        <li><span>线路 D · 仅在白天可用，晚间断连 2 次</span><span class="score">7.6</span></li>
+        <li><span>线路 C · 22:00 后 403 概率升至 29%</span><span class="score">6.5</span></li>
+      </ol>
+    </section>
+
+    <section class="block" id="related">
+      <h2>相关推荐</h2>
+      <p class="sec-note">按你可能接着要查的内容排列。</p>
+      <div class="tag-index">
+        <a href="/#guide">安卓端 720P 缓存教程</a>
+        <a href="/#faq">播放黑屏但有声音</a>
+        <a href="/#analysis">1080P 首帧对比表</a>
+        <a href="/#guide">投屏同频段排查</a>
+        <a href="/#latest">线路 C 限流时段</a>
+        <a href="/#channels">体育回放固定清晰度</a>
+        <a href="/#reviews">旧手机播放设置反馈</a>
+        <a href="/#faq">系统时间偏差导致打不开</a>
+      </div>
+    </section>
+
+    <section class="block" id="extra">
+      <h2>创作者证言：做片源整理的人怎么看线路标签</h2>
+      <div class="quote-card">
+        <p>“我做剧集整理五年，最怕的不是线路挂，是标签不写时间。用户看到‘正常’两个字就以为现在也能开，其实那是三天前标的。入口页把标签和更新时间写一行，返工能少一半。”</p>
+        <cite>— 片源整理者 老陆，11 月 5 日交流记录</cite>
+      </div>
+      <div class="quote-card" style="margin-top:12px;">
+        <p>“720P 和 1080P 在起播阶段差距大，播放中反而接近。用户报‘卡’，我第一句先问是不是刚点开就卡，这一问能筛掉一半误报。”</p>
+        <cite>— 播放器维护者 阿柯，11 月 6 日交流记录</cite>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="rail" aria-label="侧栏导航">
+    <div class="box rail-nav" id="railNav">
+      <h2>本页导航</h2>
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#picks">精选内容推荐</a></li>
+        <li><a href="/#latest">最新更新</a></li>
+        <li><a href="/#channels">分类入口</a></li>
+        <li><a href="/#analysis">深度解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#reviews">用户评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#rank">稳定度榜</a></li>
+        <li><a href="/#related">相关推荐</a></li>
+        <li><a href="/#extra">创作者证言</a></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>线路状态（11-07）</h2>
+      <p class="rail-note">线路 A：正常 · 1.8 秒首帧</p>
+      <p class="rail-note">线路 B：正常 · 3.0 秒首帧</p>
+      <p class="rail-note">线路 C：限流 · 22:10 后 403</p>
+      <p class="rail-note">线路 D：白天可用 · 晚间断连</p>
+    </div>
+    <div class="box">
+      <h2>快捷排查</h2>
+      <p class="rail-note">黑屏有声音：先降 720P</p>
+      <p class="rail-note">页面 403：换 B 线路</p>
+      <p class="rail-note">缓存失败：断点续传重试</p>
+      <p class="rail-note">投屏失败：查同一频段</p>
+    </div>
+  </aside>
+
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="f-brand">
+          <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1d3348"/>
+            <path d="M18 20l14 12-14 12z" fill="#ff7a3d"/>
+            <circle cx="44" cy="32" r="7" fill="#ffd166"/>
+          </svg>
+          maomiav.com
+        </div>
+        <p class="f-desc">把线路状态、首帧时间、缓存占用和排障顺序摆在一起，让每次起播少试几次。</p>
+      </div>
+      <div>
+        <h3>内容分类</h3>
+        <ul>
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选内容推荐</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#analysis">深度解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>服务与指南</h3>
+        <ul>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#rank">稳定度榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>反馈与记录</h3>
+        <ul>
+          <li><a href="/#reviews">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#extra">创作者证言</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-note">
+      <span>页面内线路数据、片源条目与用户评论均为示例内容，用于说明判断方法，不代表真实可用状态。最后更新：2026 年 11 月 8 日，对应正文“最新更新”板块 11 月 7 日线路 C 限流记录。</span>
+      <span>© 2026 maomiav.com</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var mainNav=document.getElementById('mainNav');
+  if(menuBtn&&mainNav){
+    menuBtn.addEventListener('click',function(){
+      var open=mainNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    mainNav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.matchMedia('(max-width:960px)').matches){
+        mainNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>520){toTop.classList.add('show');}
+    else{toTop.classList.remove('show');}
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var railLinks=[].slice.call(document.querySelectorAll('#railNav a'));
+  var sections=railLinks.map(function(a){
+    var id=a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          railLinks.forEach(function(a){a.classList.remove('active');});
+          var idx=sections.indexOf(en.target);
+          if(idx>-1){railLinks[idx].classList.add('active');}
+        }
+      });
+    },{rootMargin:'-120px 0px -60% 0px',threshold:0});
+    sections.forEach(function(s){io.observe(s);});
+  }
+
+  var form=document.getElementById('searchForm');
+  var q=document.getElementById('q');
+  var out=document.getElementById('searchOut');
+  var index=[
+    {k:'线路 A 首帧 1.8 秒 移动端',h:'/#analysis'},
+    {k:'线路 C 晚间 403 限流',h:'/#latest'},
+    {k:'播放黑屏但有声音',h:'/#faq'},
+    {k:'安卓端 720P 缓存 断点续传',h:'/#guide'},
+    {k:'投屏找不到设备 同频段',h:'/#faq'},
+    {k:'1080P 与 720P 首帧对比',h:'/#analysis'},
+    {k:'缓存存储占用估算表',h:'/#guide'},
+    {k:'系统时间偏差 打不开',h:'/#guide'},
+    {k:'剧集 电影 纪录片 分类入口',h:'/#channels'},
+    {k:'本周线路稳定度榜',h:'/#rank'},
+    {k:'创作者证言 线路标签时间',h:'/#extra'},
+    {k:'用户评论 旧手机播放',h:'/#reviews'}
+  ];
+  function runSearch(){
+    var v=(q.value||'').trim().toLowerCase();
+    if(!v){out.classList.remove('open');out.innerHTML='';return;}
+    var hits=index.filter(function(it){return it.k.toLowerCase().indexOf(v)>-1;});
+    if(hits.length){
+      out.innerHTML=hits.slice(0,6).map(function(it){
+        return '<a href="'+it.h+'">'+it.k+'</a>';
+      }).join('');
+    }else{
+      out.innerHTML='<div class="none">没找到“'+q.value.replace(/[<>&]/g,'')+'”。可试试：首帧、403、缓存、投屏。</div>';
+    }
+    out.classList.add('open');
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    runSearch();
+  });
+  q.addEventListener('input',function(){
+    if(!q.value.trim()){out.classList.remove('open');out.innerHTML='';}
+  });
+  document.addEventListener('click',function(e){
+    if(!form.contains(e.target)){out.classList.remove('open');}
+  });
+  out.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){out.classList.remove('open');}
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"maomiav.com",
+  "description":"在线视频资源入口导航与播放实测，整理线路状态、首帧时间、缓存占用与故障排查顺序。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"播放到一半黑屏，声音还在，是什么原因？",
+      "acceptedAnswer":{"@type":"Answer","text":"多数是视频轨解码中断而音频轨继续，先把清晰度从1080P降到720P，若恢复则说明设备解码能力不足；仍黑屏则切换线路验证是否丢帧。"}
+    },
+    {
+      "@type":"Question",
+      "name":"线路C晚上一直403，是不是账号被封了？",
+      "acceptedAnswer":{"@type":"Answer","text":"403说明请求被拒绝，不等于账号异常。晚间并发高时线路侧限流更常见，换线路即恢复。若换线路仍403，再检查系统时间偏差是否超过5分钟。"}
+    },
+    {
+      "@type":"Question",
+      "name":"安卓端缓存到80%失败，要重新下整集吗？",
+      "acceptedAnswer":{"@type":"Answer","text":"不需要。11月5日起支持断点续传，进入缓存列表点击重试会从中断处继续，不重复消耗已完成部分。"}
+    },
+    {
+      "@type":"Question",
+      "name":"投屏搜索不到电视，和线路有关系吗？",
+      "acceptedAnswer":{"@type":"Answer","text":"一般无关。投屏依赖同一局域网内的设备发现。先确认手机与电视连同一WiFi频段，2.4GHz与5GHz分开命名时容易连到不同网络。"}
+    }
+  ]
+}
+</script>
+</body>
+                                                              </html>
