@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天天日日久久免费-高清剧集与免费观影指南</title>
+<meta name="description" content="天天日日久久免费提供高清剧集、免费电影与综艺片单的整理与解读，覆盖国产剧、纪录片、动漫与观影技巧，标注更新日期与片源来源，帮助观众在2026年11月快速找到想看的内容。">
+<meta name="keywords" content="天天日日久久免费">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3b39'/%3E%3Cpath d='M20 18h24v6H26v6h16v6H26v10h-6z' fill='%2378d6c5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#12211f;
+  --ink-2:#2c4340;
+  --muted:#5d7773;
+  --paper:#f5f8f6;
+  --card:#ffffff;
+  --line:#d5e2de;
+  --brand:#0f3b39;
+  --brand-2:#156b62;
+  --accent:#e2673c;
+  --accent-soft:#fbe8e0;
+  --teal-soft:#e3f2ee;
+  --sand:#f3efe4;
+  --radius:14px;
+  --radius-s:9px;
+  --shadow:0 1px 2px rgba(18,33,31,.05),0 8px 24px -14px rgba(18,33,31,.28);
+  --shadow-lift:0 2px 4px rgba(18,33,31,.06),0 12px 26px -16px rgba(18,33,31,.34);
+  --fs-h1:clamp(1.9rem,4.6vw,3.05rem);
+  --fs-h2:clamp(1.32rem,2.6vw,1.72rem);
+  --fs-h3:1.06rem;
+  --gap:clamp(16px,2.4vw,26px);
+  --maxw:1180px;
+  --head-h:118px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700;letter-spacing:.01em}
+p{margin:0 0 .9em}
+ul,ol{margin:0;padding-left:1.15em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(14px,3vw,28px)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:10px 16px;z-index:200}
+.skip:focus{left:8px;top:8px}
+/* ---------- sticky stack ---------- */
+.sticky-stack{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:var(--brand);color:#dff2ec;font-size:.83rem;
+  padding:7px clamp(14px,3vw,28px);
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.notice-bar strong{color:#fff}
+.notice-bar .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.notice-bar a{color:#9fe3d6;text-decoration:underline}
+.site-head{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 6px 18px -16px rgba(18,33,31,.5);
+}
+.head-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:10px clamp(14px,3vw,28px);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:38px;height:38px;flex-shrink:0}
+.brand-text{font-size:1.06rem;font-weight:800;color:var(--brand);letter-spacing:.02em;line-height:1.2}
+.brand-sub{display:block;font-size:.66rem;font-weight:500;color:var(--muted);letter-spacing:.14em}
+.head-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;align-items:center}
+.head-nav a{
+  font-size:.87rem;color:var(--ink-2);padding:6px 9px;border-radius:8px;white-space:nowrap;
+}
+.head-nav a:hover{background:var(--teal-soft);text-decoration:none;color:var(--brand)}
+.head-tools{display:flex;gap:8px;align-items:center}
+.search-form{display:flex;align-items:center;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px 4px 3px 12px}
+.search-form input{
+  border:0;background:transparent;font:inherit;font-size:.86rem;width:132px;color:var(--ink);padding:5px 0;min-width:0;
+}
+.search-form input:focus{outline:none}
+.search-form button{
+  border:0;background:var(--brand-2);color:#fff;font:inherit;font-size:.82rem;
+  padding:5px 13px;border-radius:999px;cursor:pointer;
+}
+.btn-ghost{
+  font-size:.84rem;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--brand);background:#fff;cursor:pointer;
+}
+.search-msg{font-size:.8rem;color:var(--accent);width:100%;display:none}
+.search-msg.on{display:block}
+.menu-btn{display:none;background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 12px;font:inherit;font-size:.86rem;color:var(--brand);cursor:pointer}
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1000px 420px at 88% -8%, var(--teal-soft), transparent 62%),
+    radial-gradient(700px 340px at 4% 108%, var(--accent-soft), transparent 60%),
+    linear-gradient(180deg,#fbfdfc,#eef5f2);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(26px,5vw,52px) clamp(14px,3vw,28px) clamp(28px,4.4vw,48px);
+  display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(20px,3.4vw,44px);align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.76rem;letter-spacing:.16em;color:var(--brand-2);
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:14px;
+}
+.eyebrow i{width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}
+.hero h1{font-size:var(--fs-h1);color:var(--brand);margin-bottom:14px;letter-spacing:-.01em}
+.hero-lead{font-size:1.02rem;color:var(--ink-2);max-width:44ch;margin-bottom:20px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;
+  padding:10px 20px;border-radius:10px;border:1px solid transparent;transition:transform .18s,box-shadow .18s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+.btn-line{background:#fff;color:var(--brand);border-color:var(--line)}
+.hero-stats{display:flex;gap:clamp(16px,3vw,34px);flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:16px}
+.hero-stats div{min-width:78px}
+.hero-stats b{display:block;font-size:1.32rem;color:var(--brand);line-height:1.2}
+.hero-stats span{font-size:.78rem;color:var(--muted)}
+.hero-art{position:relative;min-height:300px}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 30px rgba(15,59,57,.16))}
+.floating-tag{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:10px;
+  font-size:.76rem;padding:5px 10px;color:var(--brand);box-shadow:var(--shadow);white-space:nowrap;
+}
+.ft-1{top:6%;left:-2%}
+.ft-2{bottom:16%;left:2%}
+.ft-3{top:24%;right:-1%}
+.ft-4{bottom:4%;right:6%}
+/* ---------- layout ---------- */
+.main-layout{
+  max-width:var(--maxw);margin:0 auto;
+  padding:var(--gap) clamp(14px,3vw,28px) clamp(30px,5vw,52px);
+  display:grid;grid-template-columns:minmax(0,1fr) 308px;gap:clamp(18px,3vw,34px);
+  align-items:start;
+}
+.content-col{min-width:0}
+aside.side-col{position:sticky;top:calc(var(--head-h) + 14px);display:flex;flex-direction:column;gap:18px}
+section[id]{scroll-margin-top:calc(var(--head-h) + 14px)}
+.panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(16px,2.4vw,26px);box-shadow:var(--shadow);margin-bottom:var(--gap);
+}
+.panel-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.panel-head h2{font-size:var(--fs-h2);color:var(--brand)}
+.panel-head .idx{
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;color:var(--accent);
+  border:1px solid var(--accent-soft);background:var(--accent-soft);border-radius:6px;padding:1px 7px;
+}
+.panel-head .meta{margin-left:auto;font-size:.78rem;color:var(--muted)}
+.sec-lead{color:var(--ink-2);font-size:.95rem;margin-bottom:16px}
+/* ---------- overview ---------- */
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.ov-card{
+  background:var(--teal-soft);border:1px solid #cfe7e1;border-radius:var(--radius-s);
+  padding:14px;display:flex;flex-direction:column;gap:4px;
+}
+.ov-card b{font-size:1.5rem;color:var(--brand);line-height:1.1}
+.ov-card span{font-size:.8rem;color:var(--ink-2)}
+.ov-card em{font-style:normal;font-size:.72rem;color:var(--muted)}
+/* ---------- picks ---------- */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.card img{width:100%;height:126px;object-fit:cover}
+.card-body{padding:11px 13px 14px}
+.card-body h3{font-size:.97rem;margin-bottom:5px;color:var(--ink)}
+.card-body p{font-size:.83rem;color:var(--muted);margin:0 0 8px;line-height:1.6}
+.tagline{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{
+  font-size:.72rem;background:var(--sand);color:#6a5a33;border-radius:5px;padding:1px 7px;
+}
+.tag.hot{background:var(--accent-soft);color:#a8431f}
+.tag.teal{background:var(--teal-soft);color:var(--brand-2)}
+.score{margin-left:auto;font-size:.76rem;color:var(--accent);font-weight:700}
+/* ---------- list ---------- */
+.upd-list{list-style:none;padding:0;margin:0}
+.upd-list li{
+  display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;
+  padding:11px 0;border-bottom:1px dashed var(--line);font-size:.9rem;
+}
+.upd-list li:last-child{border-bottom:0}
+.upd-list .date{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem;color:var(--muted)}
+.upd-list .ttl{color:var(--ink);min-width:0}
+.upd-list .ttl small{display:block;color:var(--muted);font-size:.76rem;margin-top:1px}
+.upd-list .kind{font-size:.72rem;color:var(--brand-2);background:var(--teal-soft);border-radius:5px;padding:1px 8px;white-space:nowrap}
+/* ---------- channels ---------- */
+.chan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.chan{
+  display:flex;flex-direction:column;gap:2px;padding:11px 12px;border-radius:var(--radius-s);
+  border:1px solid var(--line);background:#fcfefd;transition:background .16s,border-color .16s;
+}
+.chan:hover{background:var(--teal-soft);border-color:#bfe0d9;text-decoration:none}
+.chan b{font-size:.9rem;color:var(--ink)}
+.chan span{font-size:.74rem;color:var(--muted)}
+/* ---------- deep read ---------- */
+.deep{background:linear-gradient(180deg,#fff,#fbfdfc);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.8vw,30px);box-shadow:var(--shadow)}
+.deep h2{font-size:var(--fs-h2);color:var(--brand);margin-bottom:6px}
+.deep .byline{font-size:.78rem;color:var(--muted);margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.deep h3{font-size:var(--fs-h3);color:var(--brand);margin:22px 0 8px;padding-left:11px;border-left:4px solid var(--accent)}
+.deep p{font-size:.95rem;color:var(--ink-2)}
+.deep ol,.deep ul{font-size:.94rem;color:var(--ink-2)}
+.deep li{margin-bottom:6px}
+.compare{width:100%;border-collapse:collapse;font-size:.86rem;margin:12px 0 16px;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.compare th,.compare td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.compare th{background:var(--teal-soft);color:var(--brand);font-weight:700}
+.compare tr:last-child td{border-bottom:0}
+.quote-card{
+  background:var(--sand);border-left:4px solid #c8a86b;border-radius:0 8px 8px 0;
+  padding:12px 16px;font-size:.9rem;color:#5b4c25;margin:14px 0;
+}
+.quote-card cite{display:block;font-style:normal;font-size:.76rem;color:#8a7742;margin-top:6px}
+.verdict{
+  background:var(--brand);color:#eafaf5;border-radius:10px;padding:16px 18px;margin-top:18px;
+}
+.verdict strong{color:#fff;display:block;font-size:.95rem;margin-bottom:6px}
+.verdict p{color:#cdeee5;font-size:.9rem;margin:0}
+/* ---------- guide steps ---------- */
+.steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{
+  position:relative;padding:13px 14px 13px 52px;background:#fcfefd;border:1px solid var(--line);
+  border-radius:var(--radius-s);font-size:.9rem;color:var(--ink-2);
+}
+.steps li::before{
+  counter-increment:st;content:counter(st,decimal-leading-zero);
+  position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:7px;
+  background:var(--brand-2);color:#fff;font-size:.74rem;display:flex;align-items:center;justify-content:center;
+  font-family:ui-monospace,Menlo,Consolas,monospace;
+}
+.steps li b{color:var(--ink);display:block;font-size:.94rem;margin-bottom:2px}
+/* ---------- faq ---------- */
+details.faq{
+  border:1px solid var(--line);border-radius:var(--radius-s);background:#fcfefd;margin-bottom:9px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;padding:12px 40px 12px 14px;font-size:.92rem;font-weight:600;color:var(--ink);
+  position:relative;list-style:none;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";position:absolute;right:15px;top:50%;transform:translateY(-50%);
+  color:var(--brand-2);font-size:1.05rem;font-weight:700;
+}
+details.faq[open] summary::after{content:"–"}
+details.faq summary:hover{background:var(--teal-soft)}
+details.faq .faq-body{padding:0 15px 13px;font-size:.89rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:11px}
+/* ---------- comments ---------- */
+.cmt-list{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.cmt{
+  background:#fcfefd;border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 14px;
+}
+.cmt-top{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;background:var(--brand-2);color:#fff;
+  font-size:.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;
+}
+.cmt-name{font-size:.83rem;font-weight:700;color:var(--ink)}
+.cmt-time{font-size:.72rem;color:var(--muted);margin-left:auto}
+.cmt-body{font-size:.88rem;color:var(--ink-2);margin:0}
+.cmt-body em{font-style:normal;background:var(--accent-soft);color:#9c3f1d;padding:0 3px;border-radius:3px}
+.cmt-foot{font-size:.74rem;color:var(--muted);margin-top:6px}
+/* ---------- news ---------- */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.news-item{border-left:3px solid var(--teal-soft);padding-left:12px}
+.news-item .n-meta{font-size:.74rem;color:var(--muted)}
+.news-item h3{font-size:.92rem;margin:2px 0 4px}
+.news-item p{font-size:.82rem;color:var(--muted);margin:0}
+/* ---------- index tags ---------- */
+.tag-index{display:flex;flex-wrap:wrap;gap:8px}
+.tag-index a{
+  font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:5px 13px;background:#fcfefd;color:var(--ink-2);
+}
+.tag-index a:hover{background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none}
+/* ---------- timeline board ---------- */
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);margin-left:6px}
+.timeline li{position:relative;padding:0 0 16px 20px}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:#fff;border:2px solid var(--brand-2);
+}
+.timeline .t-date{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;color:var(--accent);font-weight:700}
+.timeline h3{font-size:.92rem;margin:1px 0 3px}
+.timeline p{font-size:.83rem;color:var(--muted);margin:0}
+/* ---------- sidebar ---------- */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 16px 18px;box-shadow:var(--shadow);
+}
+.side-card h2{font-size:.98rem;color:var(--brand);margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.side-card h2::before{content:"";width:4px;height:15px;background:var(--accent);border-radius:2px}
+.side-nav{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.side-nav a{
+  display:block;font-size:.86rem;color:var(--ink-2);padding:6px 10px;border-radius:7px;border-left:3px solid transparent;
+}
+.side-nav a:hover{background:var(--teal-soft);text-decoration:none}
+.side-nav a.active{background:var(--teal-soft);color:var(--brand);border-left-color:var(--brand-2);font-weight:700}
+.rank{list-style:none;padding:0;margin:0;counter-reset:rk}
+.rank li{
+  counter-increment:rk;display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.86rem;
+}
+.rank li:last-child{border-bottom:0;padding-bottom:0}
+.rank li::before{
+  content:counter(rk);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;
+  color:var(--brand-2);background:var(--teal-soft);border-radius:5px;padding:0 5px;flex-shrink:0;margin-top:2px;
+}
+.rank a{color:var(--ink-2)}
+.rank small{display:block;color:var(--muted);font-size:.73rem}
+.side-note{font-size:.78rem;color:var(--muted);margin:0}
+.side-note b{color:var(--ink-2)}
+/* ---------- footer ---------- */
+footer.site-foot{background:var(--brand);color:#bfe0d8;margin-top:10px}
+.foot-inner{max-width:var(--maxw);margin:0 auto;padding:clamp(26px,4vw,44px) clamp(14px,3vw,28px) 22px}
+.foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:clamp(18px,3vw,34px);padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.14)}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot-brand svg{width:32px;height:32px}
+.foot-brand b{color:#fff;font-size:1.02rem}
+.foot-pos{font-size:.86rem;color:#9ccdc3;max-width:26ch;margin:0}
+.foot-col h3{font-size:.86rem;color:#fff;margin-bottom:9px}
+.foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.foot-col a{font-size:.82rem;color:#a9d6cd}
+.foot-col a:hover{color:#fff}
+.foot-note{font-size:.8rem;color:#8fbfb5;padding-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.foot-note span{display:inline-flex;gap:6px;align-items:center}
+.copyright{font-size:.78rem;color:#7fb3a9;margin-top:10px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
+/* ---------- float top ---------- */
+#toTop{
+  position:fixed;right:18px;bottom:22px;z-index:80;
+  background:var(--brand);color:#fff;border:0;border-radius:999px;
+  padding:11px 15px;font:inherit;font-size:.82rem;cursor:pointer;box-shadow:var(--shadow-lift);
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s;
+}
+#toTop.on{opacity:1;visibility:visible;transform:none}
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .hero-art{order:-1;min-height:220px;max-width:460px}
+  .main-layout{grid-template-columns:1fr}
+  aside.side-col{position:static}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .chan-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:720px){
+  :root{--head-h:112px}
+  .head-inner{padding:8px 14px;gap:10px}
+  .head-nav{display:none;order:5;width:100%;flex-direction:column;margin-left:0;padding:6px 0 4px;border-top:1px dashed var(--line)}
+  .head-nav.open{display:flex}
+  .head-nav a{padding:9px 8px;font-size:.9rem}
+  .menu-btn{display:inline-block;margin-left:auto}
+  .head-tools{order:6;width:100%}
+  .search-form{width:100%}
+  .search-form input{flex:1;width:auto}
+  .pick-grid{grid-template-columns:1fr 1fr}
+  .overview-grid{grid-template-columns:1fr 1fr}
+  .news-grid{grid-template-columns:1fr}
+  .chan-grid{grid-template-columns:1fr 1fr}
+  .upd-list li{grid-template-columns:1fr auto;gap:5px 10px}
+  .upd-list .date{grid-column:1/-1;order:-1}
+  .foot-top{grid-template-columns:1fr}
+}
+@media (max-width:400px){
+  .pick-grid{grid-template-columns:1fr}
+  .hero-stats{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主内容</a>
+
+<div class="sticky-stack">
+  <div class="notice-bar" role="region" aria-label="站内更新公告">
+    <span class="dot" aria-hidden="true"></span>
+    <strong>天天日日久久免费</strong>
+    <span>11月7日更新片目 42 部，其中《雾港十二点》第 9 集上线，《旧铁轨》全 12 集收官。</span>
+    <a href="#latest">查看更新清单</a>
+  </div>
+
+  <header class="site-head">
+    <div class="head-inner">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" role="img" aria-label="站点图形标志：胶片孔与播放三角组成方形取景框">
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="#0f3b39"/>
+          <rect x="9" y="14" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="9" y="24" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="9" y="34" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="9" y="44" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="49" y="14" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="49" y="24" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="49" y="34" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <rect x="49" y="44" width="6" height="5" rx="1.4" fill="#78d6c5"/>
+          <path d="M25 21l18 11-18 11z" fill="#e2673c"/>
+        </svg>
+        <span class="brand-text">天天日日久久免费<span class="brand-sub">EPISODE INDEX</span></span>
+      </div>
+      <nav class="head-nav" id="headNav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#picks">本周精选</a>
+        <a href="#latest">最新更新</a>
+        <a href="#channels">分类频道</a>
+        <a href="#deep">深度解析</a>
+        <a href="#guide">观看指南</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="headNav">菜单</button>
+      <div class="head-tools">
+        <form class="search-form" id="searchForm" role="search" aria-label="站内片目搜索">
+          <input type="search" id="searchInput" name="q" placeholder="搜片名 / 频道 / 导演" aria-label="输入片名、频道或导演">
+          <button type="submit">查找</button>
+        </form>
+        <a class="btn-ghost" href="#latest">今日更新</a>
+      </div>
+      <p class="search-msg" id="searchMsg" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+</div>
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><i aria-hidden="true"></i>2026 年 11 月 8 日 · 片单第 44 期</span>
+      <h1 id="hero-title">天天日日久久免费</h1>
+      <p class="hero-lead">把一年里能看的剧集、电影、动画和纪录片摊开在同一张表上：哪部更新到第几集、哪个平台放了删减版、哪条弹幕在吵同一件事，都标清楚日期和出处。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#picks">看本周 6 部精选</a>
+        <a class="btn btn-line" href="#guide">先学怎么挑片源</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>1,268</b><span>在架条目标注完集数</span></div>
+        <div><b>42</b><span>11月7日新增片目</span></div>
+        <div><b>326</b><span>条片源版本差异记录</span></div>
+        <div><b>11</b><span>个分类频道</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 460 340" role="img">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#156b62"/><stop offset="1" stop-color="#0f3b39"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fbf4ea"/><stop offset="1" stop-color="#f0e5d2"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="18" width="412" height="304" rx="22" fill="#ffffff" opacity=".55"/>
+        <rect x="44" y="40" width="240px" height="196" rx="14" fill="url(#g1)"/>
+        <rect x="62" y="58" width="204" height="118" rx="8" fill="#0b2c2a"/>
+        <path d="M140 96l58 32-58 32z" fill="#e2673c"/>
+        <rect x="62" y="188" width="130" height="8" rx="4" fill="#2f8d80"/>
+        <rect x="62" y="204" width="88" height="8" rx="4" fill="#2a7268"/>
+        <rect x="62" y="220" width="160" height="6" rx="3" fill="#25625a"/>
+        <rect x="300" y="40" width="112" height="86" rx="12" fill="url(#g2)"/>
+        <rect x="314" y="54" width="84" height="8" rx="4" fill="#c8a86b"/>
+        <rect x="314" y="70" width="60" height="7" rx="3.5" fill="#d8c092"/>
+        <rect x="314" y="86" width="72" height="7" rx="3.5" fill="#d8c092"/>
+        <rect x="314" y="102" width="42" height="7" rx="3.5" fill="#e3d2ad"/>
+        <rect x="300" y="140" width="112" height="96" rx="12" fill="#e3f2ee"/>
+        <g fill="#156b62">
+          <rect x="314" y="156" width="12" height="12" rx="3"/>
+          <rect x="332" y="156" width="12" height="12" rx="3"/>
+          <rect x="350" y="156" width="12" height="12" rx="3"/>
+          <rect x="368" y="156" width="12" height="12" rx="3"/>
+          <rect x="314" y="176" width="12" height="12" rx="3" opacity=".6"/>
+          <rect x="332" y="176" width="12" height="12" rx="3" opacity=".6"/>
+          <rect x="350" y="176" width="12" height="12" rx="3"/>
+          <rect x="368" y="176" width="12" height="12" rx="3" opacity=".35"/>
+          <rect x="314" y="196" width="12" height="12" rx="3" opacity=".35"/>
+          <rect x="332" y="196" width="12" height="12" rx="3"/>
+          <rect x="350" y="196" width="66" height="12" rx="3" opacity=".5"/>
+        </g>
+        <rect x="44" y="252" width="368" height="56" rx="12" fill="#f3efe4"/>
+        <circle cx="72" cy="280" r="12" fill="#156b62"/>
+        <path d="M68 274l10 6-10 6z" fill="#fff"/>
+        <rect x="96" y="268" width="150" height="8" rx="4" fill="#c8b795"/>
+        <rect x="96" y="284" width="100" height="7" rx="3.5" fill="#d8cbb0"/>
+        <rect x="262" y="272" width="132" height="16" rx="8" fill="#0f3b39"/>
+        <rect x="272" y="278" width="52" height="4" rx="2" fill="#78d6c5"/>
+        <rect x="332" y="278" width="52" height="4" rx="2" fill="#3f8a7e"/>
+      </svg>
+      <span class="floating-tag ft-1">已校验 1,268 条</span>
+      <span class="floating-tag ft-2">版本差异 326 条</span>
+      <span class="floating-tag ft-3">11/07 新增 42 部</span>
+      <span class="floating-tag ft-4">全 12 集收官</span>
+    </div>
+  </div>
+</section>
+
+<div class="main-layout" id="main">
+  <div class="content-col">
+
+    <section class="panel" id="overview" aria-labelledby="ov-h">
+      <div class="panel-head">
+        <span class="idx">01</span>
+        <h2 id="ov-h">线上免费观影生态概览</h2>
+        <span class="meta">统计口径 2026-10-09 至 2026-11-07</span>
+      </div>
+      <p class="sec-lead">把“免费”当成一个流通状态来看会更清楚：同一部剧可能在 A 站限时免费、在 B 站需要会员、在 C 站只放前两集试看。这里统计的是近 30 天内至少有一条免费观看路径的条目。</p>
+      <div class="overview-grid">
+        <div class="ov-card"><b>418</b><span>近 30 天保持免费更新的剧集</span><em>国产剧 176 · 日韩剧 121 · 欧美剧 121</em></div>
+        <div class="ov-card"><b>57</b><span>全片免费的电影长片</span><em>含 19 部版权到期的老片</em></div>
+        <div class="ov-card"><b>9</b><span>主流片源平台被比对</span><em>爱奇艺、腾讯视频、优酷、芒果、B站等</em></div>
+        <div class="ov-card"><b>64%</b><span>首集免费、后续收费的剧集占比</span><em>共 267 部，多数为独播剧</em></div>
+        <div class="ov-card"><b>31</b><span>本周新增纪录片条目</span><em>自然类 12 · 人文类 19</em></div>
+        <div class="ov-card"><b>4</b><span>本周下架或缩短免费期的剧</span><em>均在 11/3—11/6 之间调整</em></div>
+      </div>
+    </section>
+
+    <section class="panel" id="picks" aria-labelledby="pk-h">
+      <div class="panel-head">
+        <span class="idx">02</span>
+        <h2 id="pk-h">本周精选：六部值得排进片单</h2>
+        <span class="meta">按 11/01—11/07 编辑观看记录排序</span>
+      </div>
+      <div class="pick-grid">
+        <article class="card">
+          <img src="https://picsum.photos/seed/wugang12/420/260" width="420" height="260" loading="lazy" alt="雾港十二点剧照：夜间码头灯下的集装箱与警车剪影">
+          <div class="card-body">
+            <h3>雾港十二点</h3>
+            <p>悬疑剧，更新至第 9 集。11/07 上线的一集把第七集的码头监控时间从 23:47 改为 00:12，前情提要未同步。</p>
+            <div class="tagline"><span class="tag teal">悬疑剧</span><span class="tag">独播</span><span class="score">8.7</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/jiutiegui/420/260" width="420" height="260" loading="lazy" alt="旧铁轨剧照：秋季荒草中的窄轨铁路与远山">
+          <div class="card-body">
+            <h3>旧铁轨</h3>
+            <p>年代剧，全 12 集已收官。11/06 最后一集片尾列出 1987 年铁道部线路调整文件编号，可对照查证。</p>
+            <div class="tagline"><span class="tag teal">年代剧</span><span class="tag hot">收官</span><span class="score">9.1</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/liuyuechao/420/260" width="420" height="260" loading="lazy" alt="六月潮纪录片画面：退潮后的滩涂与拾贝人群">
+          <div class="card-body">
+            <h3>六月潮</h3>
+            <p>自然纪录片 6 集，全片免费。第 3 集拍到福建霞浦的讨小海作业，字幕标注拍摄期为 2025 年 6 月。</p>
+            <div class="tagline"><span class="tag teal">纪录片</span><span class="tag">全片免费</span><span class="score">8.9</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/qingniao/420/260" width="420" height="260" loading="lazy" alt="青鸟信箱动画画面：蓝色天空中的红色邮筒与纸飞机">
+          <div class="card-body">
+            <h3>青鸟信箱</h3>
+            <p>国产动画，更新至第 27 集。每集 12 分钟，适合通勤；第 26 集起换了片头曲，弹幕在争作曲署名。</p>
+            <div class="tagline"><span class="tag teal">国产动画</span><span class="tag">周更</span><span class="score">8.4</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/songshu/420/260" width="420" height="260" loading="lazy" alt="松树街七号电影剧照：老式居民楼走廊与窗台绿植">
+          <div class="card-body">
+            <h3>松树街七号</h3>
+            <p>都市电影 112 分钟。10/26 上线时免费，11/02 起改为会员专享，前 10 分钟仍可试看。</p>
+            <div class="tagline"><span class="tag hot">档期调整</span><span class="tag">电影</span><span class="score">8.2</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/zaoban/420/260" width="420" height="260" loading="lazy" alt="早班车综艺画面：城市清晨公交车内乘客与车窗外街景">
+          <div class="card-body">
+            <h3>早班车</h3>
+            <p>观察类综艺第 2 季，更新至第 5 期。11/04 一期拍摄于成都 4 路首班车，司机姓名做了变声处理。</p>
+            <div class="tagline"><span class="tag teal">综艺</span><span class="tag">周五更新</span><span class="score">8.0</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="latest" aria-labelledby="lt-h">
+      <div class="panel-head">
+        <span class="idx">03</span>
+        <h2 id="lt-h">最新更新清单</h2>
+        <span class="meta">截至 11/08 上午，逐条核对</span>
+      </div>
+      <ul class="upd-list">
+        <li><span class="date">11-07</span><span class="ttl">《雾港十二点》第 9 集<small>时长 44:12，片尾字幕补充“本集时间线经二次校对”</small></span><span class="kind">悬疑剧</span></li>
+        <li><span class="date">11-07</span><span class="ttl">《早班车》第 2 季第 5 期<small>成都 4 路首班车 05:20 发车片段，正片 78 分钟</small></span><span class="kind">综艺</span></li>
+        <li><span class="date">11-06</span><span class="ttl">《旧铁轨》第 12 集（大结局）<small>片尾附 1987 年铁路线路调整文件编号</small></span><span class="kind">年代剧</span></li>
+        <li><span class="date">11-05</span><span class="ttl">《青鸟信箱》第 27 集<small>换片头曲，作曲署名改为“林岸 / 赵知遥”</small></span><span class="kind">动画</span></li>
+        <li><span class="date">11-04</span><span class="ttl">《六月潮》第 5 集<small>霞浦讨小海段落 8 分钟，全片免费</small></span><span class="kind">纪录片</span></li>
+        <li><span class="date">11-03</span><span class="ttl">《松树街七号》改为会员专享<small>免费试看时长由全片缩至前 10 分钟</small></span><span class="kind">档期</span></li>
+        <li><span class="date">11-02</span><span class="ttl">《夜航西飞》纪录片第 1—6 集上线<small>全片免费，每集 30 分钟，含中英字幕</small></span><span class="kind">纪录片</span></li>
+        <li><span class="date">11-01</span><span class="ttl">《小城叙事诗》第 2 季开播<small>首集免费，第 2 集起需会员</small></span><span class="kind">国产剧</span></li>
+      </ul>
+    </section>
+
+    <section class="panel" id="channels" aria-labelledby="ch-h">
+      <div class="panel-head">
+        <span class="idx">04</span>
+        <h2 id="ch-h">分类频道入口</h2>
+        <span class="meta">11 个频道，按近 30 天条数排序</span>
+      </div>
+      <div class="chan-grid">
+        <a class="chan" href="/#picks"><b>国产剧</b><span>176 部在更</span></a>
+        <a class="chan" href="/#picks"><b>日韩剧</b><span>121 部在更</span></a>
+        <a class="chan" href="/#picks"><b>欧美剧</b><span>121 部在更</span></a>
+        <a class="chan" href="/#picks"><b>悬疑推理剧</b><span>64 部 · 本周 3 更</span></a>
+        <a class="chan" href="/#picks"><b>都市情感剧</b><span>88 部 · 本周 5 更</span></a>
+        <a class="chan" href="/#deep"><b>纪录片</b><span>31 条新增</span></a>
+        <a class="chan" href="/#picks"><b>国产动画</b><span>52 部在更</span></a>
+        <a class="chan" href="/#picks"><b>日本动画</b><span>39 部在更</span></a>
+        <a class="chan" href="/#picks"><b>综艺</b><span>28 档在播</span></a>
+        <a class="chan" href="/#picks"><b>电影</b><span>57 部全片免费</span></a>
+        <a class="chan" href="/#guide"><b>片源版本对比</b><span>326 条差异记录</span></a>
+      </div>
+    </section>
+
+    <section class="deep" id="deep" aria-labelledby="dp-h">
+      <h2 id="dp-h">深度解析：把“免费”拆成可核对的四个变量</h2>
+      <p class="byline">整理：片单编辑组 · 数据窗口 2026-10-09 至 2026-11-07 · 涉及 9 个平台、418 部剧集</p>
+
+      <p>“免费”在剧集页面上是一个动态标签，不是一个固定属性。同样一部《松树街七号》，10 月 26 日上线时 112 分钟全片可看，11 月 2 日上午 9 点起改为会员专享，只留前 10 分钟试看，豆瓣页面的短评时间戳完整记录了这次切换。要判断一条片子能不能不花钱看完，至少要看四个变量：免费时长、免费集数、有效期、清晰度上限。</p>
+
+      <h3>变量一：免费时长从“全片”缩到“前 10 分钟”</h3>
+      <p>在 418 部样本里，全片免费的只有 57 部电影和 34 部纪录片；其余 327 部剧集采用“首集免费 + 后续会员”或“每天限免一集”的模式。11 月 3 日《松树街七号》的调整属于最直接的收窄：平台更新说明写的是“为配合新档期”，但同一天该片在另一平台上线了 4K 版本。免费窗口的缩短与高清版本上线时间重合，这一点在平台的公告里没有明说，属于推测，不作结论。</p>
+
+      <h3>变量二：集数口径里的“更新至第几集”</h3>
+      <table class="compare">
+        <caption class="sr-only" style="position:absolute;left:-9999px">两部剧集的更新口径对比</caption>
+        <thead><tr><th>条目</th><th>页面标注</th><th>实际可看</th><th>差异来源</th></tr></thead>
+        <tbody>
+          <tr><td>雾港十二点</td><td>更新至第 9 集</td><td>第 1—9 集</td><td>无差异，第 9 集 11/07 18:00 上线</td></tr>
+          <tr><td>青鸟信箱</td><td>更新至第 27 集</td><td>第 1—26 集免费，第 27 集会员</td><td>最新一集不在免费范围</td></tr>
+          <tr><td>小城叙事诗 第2季</td><td>更新至第 4 集</td><td>第 1 集免费</td><td>首集限免，其余需会员</td></tr>
+        </tbody>
+      </table>
+      <p>表里第二行最容易被误读：页面写“更新至第 27 集”，实际免费只到第 26 集。这种错位在独播剧里出现频率最高，统计期内共 41 部，占独播剧样本的 38%。判断方法很笨但有效——点开最新一集的播放键，看是否弹出会员提示，再回退一集确认。</p>
+
+      <h3>变量三：版本差异，同一集有 42 分钟和 46 分钟两版</h3>
+      <p>《雾港十二点》第 7 集在两个平台分别标注 42:18 和 46:03。4 分钟差额集中在码头监控回放段落，短版直接切到警车到场，长版保留了调取监控的全过程。11 月 7 日第 9 集上线后，长版里的时间戳“00:12”与第 7 集短版里的“23:47”对不上，导致部分观众认为剧情出现漏洞。平台客服在 11 月 7 日晚的回复里称“两版均为正式版本”，没有解释时间线差异。这里是事实：两版时长不同、时间戳不一致；这里是回应：平台称均为正式版；这里是推测：差异可能来自剪辑版本分批送审，但没有公开文件可以证实。</p>
+
+      <div class="quote-card">
+        “第 7 集我看的是 46 分钟版，第 9 集说 00:12 才调监控，那 23:47 那段是谁在看屏幕？”
+        <cite>——用户“码头老陈”，11 月 7 日 22:41 发布于剧集讨论区</cite>
+      </div>
+
+      <h3>变量四：有效期与清晰度上限常常写在同一行小字里</h3>
+      <p>免费条目通常在详情页底部有一行灰字，写明“限时免费至 X 月 X 日”和“免费用户最高 720P”。11 月 2 日上线的《夜航西飞》6 集纪录片，灰字写的是“免费至 2026 年 12 月 31 日，最高 1080P”，这是样本里少见的宽松条件。对比之下，《六月潮》标“免费至 11 月 30 日，最高 720P”，两部的差别直接影响观看设备选择——用电视看 720P 的滩涂画面，颗粒感明显。</p>
+
+      <h3>可以拿去核对的三条判断</h3>
+      <ol>
+        <li>“首集免费”的剧集里，约 64% 在第二周把首集也转为会员，样本期共 267 部中有 171 部出现这一变化，可在平台“剧集动态”里逐条比对日期。</li>
+        <li>同一部剧的免费集数在两个平台不一致时，通常以集数少的那个为准，因为另一平台多为同步跟播、权限滞后，11 月 1 日《小城叙事诗》第 2 季就是这种情况。</li>
+        <li>纪录片的全片免费比例（34/65，约 52%）远高于剧情剧（23/353，约 6.5%），选片时把纪录片作为“零成本观看”的首选更实际。</li>
+      </ol>
+
+      <div class="verdict">
+        <strong>结论</strong>
+        <p>把免费看成有期限、有集数上限、有清晰度上限的许可，比看成平台属性更接近事实。判断一部剧能不能免费看完，优先看最新一集的播放键，再看详情页灰字，最后核对两版时长——三步下来，误判率会明显下降。</p>
+      </div>
+    </section>
+
+    <section class="panel" id="guide" aria-labelledby="gd-h">
+      <div class="panel-head">
+        <span class="idx">06</span>
+        <h2 id="gd-h">体验指南：五步走完一次免费观影</h2>
+        <span class="meta">适用于手机、平板与电视端</span>
+      </div>
+      <ol class="steps">
+        <li><b>先确认最新一集是否免费</b>点开“更新至第 N 集”的播放键，出现会员弹窗就回退一集。11 月 7 日《青鸟信箱》第 27 集属于会员集，第 26 集仍可免费看。</li>
+        <li><b>读详情页底部灰字</b>有效期、清晰度上限、是否含广告三项通常写在一起。灰字比顶部横幅可靠，横幅常写“限时免费”但不标截止日。</li>
+        <li><b>比对两版时长</b>同一集在两个平台时长差超过 2 分钟，就打开长版看关键段落。11 月 7 日《雾港十二点》第 9 集的码头段落，长版多出 1 分 40 秒。</li>
+        <li><b>设置观看提醒</b>周更剧在平台内开“更新提醒”，比记日期稳。11 月 4 日《早班车》第 5 期提前 2 小时上线，提醒比日历先到。</li>
+        <li><b>保留截图再讨论剧情</b>时间戳、集数、版本时长截在同一张图里，讨论时省很多解释。11 月 7 日晚关于 00:12 的争论，多数分歧来自看的版本不同。</li>
+      </ol>
+    </section>
+
+    <section class="panel" id="faq" aria-labelledby="fq-h">
+      <div class="panel-head">
+        <span class="idx">07</span>
+        <h2 id="fq-h">常见问题</h2>
+        <span class="meta">按 11 月 1—8 日提问频次排列</span>
+      </div>
+      <details class="faq" open>
+        <summary>首集免费之后，第二集什么时候开始收费？</summary>
+        <div class="faq-body">多数独播剧在第二集上线当天就把首集转为会员，11 月 1 日开播的《小城叙事诗》第 2 季就是首集免费、11 月 2 日第 2 集上线时首集同步收紧。跟播剧通常滞后 3—7 天。判断办法是看首集播放键旁的“限免”角标是否还在。</div>
+      </details>
+      <details class="faq">
+        <summary>为什么同一集在两个平台时长不一样？</summary>
+        <div class="faq-body">剪辑版本、送审批次、片头片尾长度都可能造成差异。《雾港十二点》第 7 集 42:18 与 46:03 两版，差额集中在码头监控回放段落；两版片头分别是 1 分 12 秒和 2 分 05 秒，也占一部分。遇到时长差超过 2 分钟，优先看长版的关键段落。</div>
+      </details>
+      <details class="faq">
+        <summary>纪录片为什么更容易全片免费？</summary>
+        <div class="faq-body">版权采购方式和播出目标不同。纪录片常由机构联合出品，上线时以传播覆盖为先，样本期 65 部纪录片里 34 部全片免费，比例约 52%；剧情剧 353 部里只有 23 部全片免费，约 6.5%。《六月潮》《夜航西飞》都属于前者。</div>
+      </details>
+      <details class="faq">
+        <summary>免费用户最高 720P 会影响观看吗？</summary>
+        <div class="faq-body">取决于屏幕和内容。《六月潮》的滩涂远景在 720P 下有明显颗粒，用手机看差异不大，投到 55 英寸电视就能看出来。《夜航西飞》免费档给到 1080P，是样本里少见的宽松条件。</div>
+      </details>
+      <details class="faq">
+        <summary>限时免费到期后还有别的观看路径吗？</summary>
+        <div class="faq-body">有，但通常不是同一版本。11 月 3 日《松树街七号》改为会员专享后，另一平台上线了 4K 版本，仍需会员。版权到期的老片会出现全片免费窗口，样本期 19 部，多数是 2010 年以前的作品。</div>
+      </details>
+    </section>
+
+    <section class="panel" id="comments" aria-labelledby="cm-h">
+      <div class="panel-head">
+        <span class="idx">08</span>
+        <h2 id="cm-h">观众评论</h2>
+        <span class="meta">11 月 6—8 日，含中性意见</span>
+      </div>
+      <ul class="cmt-list">
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">陈</span><span class="cmt-name">码头老陈</span><span class="cmt-time">11-07 22:41</span></div>
+          <p class="cmt-body">《雾港十二点》第 9 集说 <em>00:12 才调监控</em>，可我第 7 集看的是 46 分钟版，23:47 那会儿屏幕上就有人在看回放了。两版对不上，不是观众记错。</p>
+          <div class="cmt-foot">指向条目：雾港十二点 第 7、9 集 · 12 人赞同</div>
+        </li>
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">林</span><span class="cmt-name">林岸以南</span><span class="cmt-time">11-07 19:03</span></div>
+          <p class="cmt-body">《旧铁轨》最后一集片尾那个 1987 年的文件编号是真能查到的，我在铁路志里翻到了对应段落。年代剧愿意把出处放片尾，少见。</p>
+          <div class="cmt-foot">指向条目：旧铁轨 第 12 集 · 27 人赞同</div>
+        </li>
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">周</span><span class="cmt-name">周末补剧</span><span class="cmt-time">11-07 15:22</span></div>
+          <p class="cmt-body">《青鸟信箱》换了片头曲之后我反而不太想看了，12 分钟的片子，片头占 1 分半，比例有点高。第 26 集之前的节奏更舒服。</p>
+          <div class="cmt-foot">指向条目：青鸟信箱 第 26—27 集 · 9 人赞同</div>
+        </li>
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">阿</span><span class="cmt-name">阿岚</span><span class="cmt-time">11-06 21:10</span></div>
+          <p class="cmt-body">《六月潮》第 5 集霞浦那段拍得好，但我用电视看 720P，退潮后滩涂的纹理糊成一片。免费给 720P 可以理解，纪录片是不是该给个高清选项。</p>
+          <div class="cmt-foot">指向条目：六月潮 第 5 集 · 18 人赞同</div>
+        </li>
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">老</span><span class="cmt-name">老宋不追更</span><span class="cmt-time">11-06 12:37</span></div>
+          <p class="cmt-body">《松树街七号》10 月 26 日全片免费，11 月 2 日就变会员了。片子本身还行，112 分钟讲一栋楼里三户人家，节奏偏慢，喜欢快节奏的可能看不下去。</p>
+          <div class="cmt-foot">指向条目：松树街七号 · 中性评价 · 6 人赞同</div>
+        </li>
+        <li class="cmt">
+          <div class="cmt-top"><span class="avatar" aria-hidden="true">小</span><span class="cmt-name">小满赶首班车</span><span class="cmt-time">11-05 08:52</span></div>
+          <p class="cmt-body">《早班车》成都那期 05:20 发车拍得真实，司机变声处理也能理解。就是第 5 期比预告早了 2 小时上线，错过直播讨论。</p>
+          <div class="cmt-foot">指向条目：早班车 第 2 季第 5 期 · 11 人赞同</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="panel" id="news" aria-labelledby="nw-h">
+      <div class="panel-head">
+        <span class="idx">09</span>
+        <h2 id="nw-h">相关资讯</h2>
+        <span class="meta">10 月 30 日—11 月 8 日</span>
+      </div>
+      <div class="news-grid">
+        <article class="news-item">
+          <div class="n-meta">11-07 · 平台公告</div>
+          <h3>《雾港十二点》两版并存，客服称均为正式版本</h3>
+          <p>当晚客服在评论区回复，未解释 23:47 与 00:12 的时间线差异，也未说明长版是否后续统一。</p>
+        </article>
+        <article class="news-item">
+          <div class="n-meta">11-06 · 片尾信息</div>
+          <h3>《旧铁轨》大结局列出 1987 年线路调整文件编号</h3>
+          <p>片尾字幕第 3 屏出现文件编号与年份，可在铁路志类资料中检索到对应段落。</p>
+        </article>
+        <article class="news-item">
+          <div class="n-meta">11-03 · 档期调整</div>
+          <h3>《松树街七号》免费窗口缩短至前 10 分钟</h3>
+          <p>同日另一平台上线 4K 版本，需会员。平台公告给出的理由是“配合新档期”。</p>
+        </article>
+        <article class="news-item">
+          <div class="n-meta">11-02 · 新片上线</div>
+          <h3>纪录片《夜航西飞》6 集全片免费至年底</h3>
+          <p>每集 30 分钟，含中英字幕，免费档清晰度上限 1080P，是近期条件最宽松的条目之一。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="timeline" aria-labelledby="tl-h">
+      <div class="panel-head">
+        <span class="idx">10</span>
+        <h2 id="tl-h">两周片单时间线</h2>
+        <span class="meta">10 月 25 日—11 月 8 日关键节点</span>
+      </div>
+      <ul class="timeline">
+        <li><span class="t-date">11-08</span><h3>片单第 44 期发布</h3><p>新增 42 部片目，标注完集数 1,268 条，版本差异记录 326 条。</p></li>
+        <li><span class="t-date">11-07</span><h3>《雾港十二点》第 9 集与《早班车》第 5 期同日上线</h3><p>前者引发时间线讨论，后者提前 2 小时上线。</p></li>
+        <li><span class="t-date">11-06</span><h3>《旧铁轨》全 12 集收官</h3><p>片尾附 1987 年文件编号，成为年代剧考据话题。</p></li>
+        <li><span class="t-date">11-03</span><h3>《松树街七号》免费窗口收窄</h3><p>由全片 112 分钟缩至前 10 分钟试看。</p></li>
+        <li><span class="t-date">10-26</span><h3>《松树街七号》上线，全片免费</h3><p>上线首周为该片免费观看窗口最长的一段。</p></li>
+        <li><span class="t-date">10-25</span><h3>片单第 43 期发布</h3><p>首次引入“免费时长 / 免费集数 / 有效期 / 清晰度”四项标注。</p></li>
+      </ul>
+    </section>
+
+    <section class="panel" id="related" aria-labelledby="rl-h">
+      <div class="panel-head">
+        <span class="idx">11</span>
+        <h2 id="rl-h">相关推荐关键词</h2>
+        <span class="meta">点击跳转到对应板块</span>
+      </div>
+      <div class="tag-index">
+        <a href="/#picks">悬疑剧免费更新时间</a>
+        <a href="/#latest">国产剧首集免费</a>
+        <a href="/#deep">纪录片全片免费</a>
+        <a href="/#guide">片源版本时长对比</a>
+        <a href="/#faq">免费观看清晰度上限</a>
+        <a href="/#picks">国产动画周更片单</a>
+        <a href="/#latest">限时免费到期提醒</a>
+        <a href="/#deep">独播剧免费集数</a>
+        <a href="/#comments">年代剧考据片尾</a>
+        <a href="/#channels">日韩剧在更清单</a>
+      </div>
+      <p class="side-note" style="margin-top:14px">以上入口与站内板块一一对应，点击后滚动至对应位置；条目数据为示例整理，日期以正文标注为准。</p>
+    </section>
+
+  </div>
+
+  <aside class="side-col" aria-label="侧栏导航与榜单">
+    <div class="side-card">
+      <h2>板块导航</h2>
+      <ul class="side-nav" id="sideNav">
+        <li><a href="#overview">领域概览</a></li>
+        <li><a href="#picks">本周精选</a></li>
+        <li><a href="#latest">最新更新</a></li>
+        <li><a href="#channels">分类频道</a></li>
+        <li><a href="#deep">深度解析</a></li>
+        <li><a href="#guide">体验指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#comments">观众评论</a></li>
+        <li><a href="#news">相关资讯</a></li>
+        <li><a href="#timeline">片单时间线</a></li>
+        <li><a href="#related">相关推荐</a></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h2>本周免费观看榜</h2>
+      <ol class="rank">
+        <li><a href="#picks">旧铁轨</a><small>全 12 集收官 · 9.1 分</small></li>
+        <li><a href="#picks">六月潮</a><small>全片免费 · 8.9 分</small></li>
+        <li><a href="#picks">雾港十二点</a><small>更新至第 9 集 · 8.7 分</small></li>
+        <li><a href="#picks">青鸟信箱</a><small>更新至第 27 集 · 8.4 分</small></li>
+        <li><a href="#picks">松树街七号</a><small>档期调整 · 8.2 分</small></li>
+        <li><a href="#picks">早班车</a><small>第 5 期 · 8.0 分</small></li>
+      </ol>
+    </div>
+    <div class="side-card">
+      <h2>编辑提示</h2>
+      <p class="side-note"><b>11 月 3 日</b>起，《松树街七号》免费时长缩至前 10 分钟。<br><b>11 月 6 日</b>《旧铁轨》收官，片尾文件编号可查。<br><b>11 月 7 日</b>两版《雾港十二点》时间线不一致，讨论时先确认版本时长。</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" rx="14" fill="#156b62"/>
+            <rect x="9" y="14" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="9" y="24" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="9" y="34" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="9" y="44" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="49" y="14" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="49" y="24" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="49" y="34" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <rect x="49" y="44" width="6" height="5" rx="1.4" fill="#9fe3d6"/>
+            <path d="M25 21l18 11-18 11z" fill="#e2673c"/>
+          </svg>
+          <b>天天日日久久免费</b>
+        </div>
+        <p class="foot-pos">按日期与版本时长逐条核对的片单索引，帮助观众先看清免费条件，再决定点开哪一集。</p>
+      </div>
+      <div class="foot-col">
+        <h3>片单</h3>
+        <ul>
+          <li><a href="/#picks">本周精选</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类频道</a></li>
+          <li><a href="/#timeline">片单时间线</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>解读</h3>
+        <ul>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">观众评论</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>说明</h3>
+        <ul>
+          <li><a href="/#overview">统计口径</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#latest">更新时间</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>示例数据说明：片名、评分、更新日期均为示例整理，用于展示片单结构，不对应真实版权信息。</span>
+      <span>页脚更新时间：2026-11-08 09:30，对应正文可核对项为 11 月 7 日《雾港十二点》第 9 集与《早班车》第 5 期上线记录。</span>
+    </div>
+    <p class="copyright">© 2026 天天日日久久免费 片单索引 · 内容仅供示例参考</p>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">回到顶部</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"天天日日久久免费",
+  "description":"整理高清剧集、免费电影与综艺片单，标注更新日期、免费时长、免费集数与版本差异。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"首集免费之后，第二集什么时候开始收费？","acceptedAnswer":{"@type":"Answer","text":"多数独播剧在第二集上线当天就把首集转为会员，11月1日开播的《小城叙事诗》第2季就是首集免费、11月2日第2集上线时首集同步收紧。跟播剧通常滞后3—7天。"}},
+    {"@type":"Question","name":"为什么同一集在两个平台时长不一样？","acceptedAnswer":{"@type":"Answer","text":"剪辑版本、送审批次、片头片尾长度都可能造成差异。《雾港十二点》第7集42:18与46:03两版，差额集中在码头监控回放段落。"}},
+    {"@type":"Question","name":"纪录片为什么更容易全片免费？","acceptedAnswer":{"@type":"Answer","text":"版权采购方式和播出目标不同。纪录片常由机构联合出品，上线时以传播覆盖为先，样本期65部纪录片里34部全片免费，比例约52%。"}},
+    {"@type":"Question","name":"免费用户最高720P会影响观看吗？","acceptedAnswer":{"@type":"Answer","text":"取决于屏幕和内容。《六月潮》的滩涂远景在720P下有明显颗粒，用手机看差异不大，投到55英寸电视就能看出来。"}},
+    {"@type":"Question","name":"限时免费到期后还有别的观看路径吗？","acceptedAnswer":{"@type":"Answer","text":"有，但通常不是同一版本。11月3日《松树街七号》改为会员专享后，另一平台上线了4K版本，仍需会员。"}}
+  ]
+}
+</script>
+<script>
+(function(){
+  var headNav=document.getElementById('headNav');
+  var menuBtn=document.getElementById('menuBtn');
+  if(menuBtn){
+    menuBtn.addEventListener('click',function(){
+      var open=headNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open?'true':'false');
+    });
+    headNav.addEventListener('click',function(e){
+      if(e.target.tagName==='A' && window.innerWidth<=720){
+        headNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 本地搜索 */
+  var form=document.getElementById('searchForm');
+  var input=document.getElementById('searchInput');
+  var msg=document.getElementById('searchMsg');
+  var index=[];
+  document.querySelectorAll('article.card, .upd-list li, .chan, .timeline li, details.faq').forEach(function(el){
+    var text=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim();
+    if(!text) return;
+    var target=el.closest('section[id]');
+    index.push({text:text, el:el, secId:target?target.id:''});
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var q=(input.value||'').trim();
+    if(!q){ msg.textContent='请输入片名、频道或导演名再搜索。'; msg.classList.add('on'); return; }
+    var hits=index.filter(function(item){ return item.text.indexOf(q)>-1; });
+    if(hits.length===0){
+      msg.textContent='没有找到与“'+q+'”对应的条目，可换片名关键词或浏览分类频道。';
+      msg.classList.add('on');
+      return;
+    }
+    msg.textContent='找到 '+hits.length+' 条相关记录，已定位到第一条：'+hits[0].text.slice(0,26)+'…';
+    msg.classList.add('on');
+    var el=hits[0].el;
+    if(el.tagName==='DETAILS'){ el.open=true; }
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  /* 侧栏滚动高亮 */
+  var links=Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href').replace('/','')); }).filter(Boolean);
+  function syncActive(){
+    var y=window.scrollY+140;
+    var current=null;
+    secs.forEach(function(s){ if(s.offsetTop<=y) current=s; });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current){
+      var found=links.find(function(a){ return a.getAttribute('href')==='#'+current.id; });
+      if(found) found.classList.add('active');
+    }
+  }
+  window.addEventListener('scroll',syncActive,{passive:true});
+  window.addEventListener('resize',syncActive);
+  syncActive();
+
+  /* 回到顶部 */
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>560){ toTop.classList.add('on'); } else { toTop.classList.remove('on'); }
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+    var first=document.getElementById('main');
+    if(first){ first.setAttribute('tabindex','-1'); first.focus({preventScroll:true}); }
+  });
+})();
+</script>
+</body>
+  </html>
